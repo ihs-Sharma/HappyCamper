@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.otf">
+            <string>Montserrat-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="iPhoneSocialTabs" customModule="HappyCamper" customModuleProvider="target">
+            <connections>
+                <outlet property="facebookButton" destination="VFF-aK-aho" id="iQG-pc-tlN"/>
+                <outlet property="instagramButton" destination="LcS-fa-Xgd" id="NTm-nd-aV9"/>
+                <outlet property="pintrestButton" destination="rU1-Ah-3cG" id="qg5-My-jG7"/>
+                <outlet property="twitterButton" destination="7Z4-mt-21s" id="F4m-ed-RJM"/>
+                <outlet property="youtubeButton" destination="bz7-qi-f4v" id="5iA-ys-7Ky"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="iPhoneSocialTabs" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Mt-FO-kP1">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="nWP-PO-KaC">
+                            <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZNA-Et-Bsw">
+                            <rect key="frame" x="200" y="10" width="190" height="30"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFF-aK-aho">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="3w6-Uh-y0r"/>
+                                        <constraint firstAttribute="width" constant="30" id="sMB-sE-PBU"/>
+                                    </constraints>
+                                    <state key="normal" image="facebook">
+                                        <color key="titleColor" red="1" green="0.32174812539999997" blue="0.28273762940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="socialTabButtonActions:" destination="-1" eventType="touchUpInside" id="6W0-Ww-e1d"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcS-fa-Xgd">
+                                    <rect key="frame" x="40" y="0.0" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="XPw-ci-f3k"/>
+                                        <constraint firstAttribute="height" constant="30" id="aTf-xh-xb6"/>
+                                    </constraints>
+                                    <state key="normal" image="instagram">
+                                        <color key="titleColor" red="1" green="0.32174812539999997" blue="0.28273762940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="socialTabButtonActions:" destination="-1" eventType="touchUpInside" id="8Qc-9H-f9K"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z4-mt-21s">
+                                    <rect key="frame" x="80" y="0.0" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="UOc-d5-JIb"/>
+                                        <constraint firstAttribute="height" constant="30" id="vCB-WA-LZI"/>
+                                    </constraints>
+                                    <state key="normal" image="twitter">
+                                        <color key="titleColor" red="1" green="0.32174812539999997" blue="0.28273762940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="socialTabButtonActions:" destination="-1" eventType="touchUpInside" id="tLe-3Q-Y0v"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rU1-Ah-3cG">
+                                    <rect key="frame" x="120" y="0.0" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="d1P-Bi-GkK"/>
+                                        <constraint firstAttribute="width" constant="30" id="qp9-Vb-g3P"/>
+                                    </constraints>
+                                    <state key="normal" image="pintrest">
+                                        <color key="titleColor" red="1" green="0.32174812539999997" blue="0.28273762940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="socialTabButtonActions:" destination="-1" eventType="touchUpInside" id="s8u-sD-RDh"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bz7-qi-f4v">
+                                    <rect key="frame" x="160" y="0.0" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="m0j-rV-UA1"/>
+                                        <constraint firstAttribute="width" constant="30" id="q7m-ym-70v"/>
+                                    </constraints>
+                                    <state key="normal" image="youtube">
+                                        <color key="titleColor" red="1" green="0.32174812539999997" blue="0.28273762940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="socialTabButtonActions:" destination="-1" eventType="touchUpInside" id="yNH-Jv-ZBj"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="VFF-aK-aho" firstAttribute="top" secondItem="ZNA-Et-Bsw" secondAttribute="top" id="2v7-e2-PAs"/>
+                                <constraint firstItem="rU1-Ah-3cG" firstAttribute="width" secondItem="VFF-aK-aho" secondAttribute="width" id="3FU-iV-uwl"/>
+                                <constraint firstItem="bz7-qi-f4v" firstAttribute="leading" secondItem="rU1-Ah-3cG" secondAttribute="trailing" constant="10" id="3fs-3k-GgV"/>
+                                <constraint firstItem="LcS-fa-Xgd" firstAttribute="width" secondItem="VFF-aK-aho" secondAttribute="width" id="3v9-gC-2Aj"/>
+                                <constraint firstItem="rU1-Ah-3cG" firstAttribute="leading" secondItem="7Z4-mt-21s" secondAttribute="trailing" constant="10" id="7uc-uf-v2M"/>
+                                <constraint firstItem="bz7-qi-f4v" firstAttribute="width" secondItem="VFF-aK-aho" secondAttribute="width" id="H3Q-oq-lNH"/>
+                                <constraint firstItem="rU1-Ah-3cG" firstAttribute="height" secondItem="VFF-aK-aho" secondAttribute="height" id="HIC-g2-K4u"/>
+                                <constraint firstItem="7Z4-mt-21s" firstAttribute="height" secondItem="VFF-aK-aho" secondAttribute="height" id="IB8-Hg-TnL"/>
+                                <constraint firstItem="LcS-fa-Xgd" firstAttribute="top" secondItem="ZNA-Et-Bsw" secondAttribute="top" id="IfL-28-gR8"/>
+                                <constraint firstItem="rU1-Ah-3cG" firstAttribute="top" secondItem="ZNA-Et-Bsw" secondAttribute="top" id="KrZ-uR-PwE"/>
+                                <constraint firstItem="7Z4-mt-21s" firstAttribute="leading" secondItem="LcS-fa-Xgd" secondAttribute="trailing" constant="10" id="LUf-l3-EV6"/>
+                                <constraint firstItem="bz7-qi-f4v" firstAttribute="height" secondItem="VFF-aK-aho" secondAttribute="height" id="Oqw-vh-38R"/>
+                                <constraint firstAttribute="bottom" secondItem="7Z4-mt-21s" secondAttribute="bottom" id="QaW-K7-38A"/>
+                                <constraint firstAttribute="trailing" secondItem="bz7-qi-f4v" secondAttribute="trailing" id="U4e-6D-oV2"/>
+                                <constraint firstItem="VFF-aK-aho" firstAttribute="leading" secondItem="ZNA-Et-Bsw" secondAttribute="leading" id="Wh2-a3-DO3"/>
+                                <constraint firstItem="7Z4-mt-21s" firstAttribute="width" secondItem="VFF-aK-aho" secondAttribute="width" id="Zwq-FI-olD"/>
+                                <constraint firstAttribute="bottom" secondItem="rU1-Ah-3cG" secondAttribute="bottom" id="bue-KU-0l7"/>
+                                <constraint firstItem="bz7-qi-f4v" firstAttribute="top" secondItem="ZNA-Et-Bsw" secondAttribute="top" id="hai-Fi-ZOA"/>
+                                <constraint firstAttribute="bottom" secondItem="bz7-qi-f4v" secondAttribute="bottom" id="ija-O3-7ad"/>
+                                <constraint firstItem="LcS-fa-Xgd" firstAttribute="height" secondItem="VFF-aK-aho" secondAttribute="height" id="pVw-fo-HvB"/>
+                                <constraint firstAttribute="bottom" secondItem="LcS-fa-Xgd" secondAttribute="bottom" id="q4z-wX-0kN"/>
+                                <constraint firstItem="7Z4-mt-21s" firstAttribute="top" secondItem="ZNA-Et-Bsw" secondAttribute="top" id="qQb-OA-eq9"/>
+                                <constraint firstAttribute="bottom" secondItem="VFF-aK-aho" secondAttribute="bottom" id="xVQ-YH-qcX"/>
+                                <constraint firstItem="LcS-fa-Xgd" firstAttribute="leading" secondItem="VFF-aK-aho" secondAttribute="trailing" constant="10" id="yk7-qR-LGN"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="365 DAYS OF SUMMER CAMP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZ5-sY-HKJ">
+                            <rect key="frame" x="20" y="164" width="197.5" height="16"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HappyCamper_Logo_Color_Vector-1 Copy 14" translatesAutoresizingMaskIntoConstraints="NO" id="d6o-AG-Wzm">
+                            <rect key="frame" x="20" y="80.5" width="104" height="73.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="d6o-AG-Wzm" secondAttribute="height" multiplier="24:17" id="3MP-Sz-yD3"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="GZ5-sY-HKJ" secondAttribute="bottom" constant="20" id="217-9m-j8g"/>
+                        <constraint firstItem="GZ5-sY-HKJ" firstAttribute="top" secondItem="d6o-AG-Wzm" secondAttribute="bottom" constant="10" id="78X-rQ-mRI"/>
+                        <constraint firstItem="nWP-PO-KaC" firstAttribute="leading" secondItem="0Mt-FO-kP1" secondAttribute="leading" id="78b-Wk-Kav"/>
+                        <constraint firstItem="nWP-PO-KaC" firstAttribute="height" secondItem="0Mt-FO-kP1" secondAttribute="height" id="8zl-bx-Zcs"/>
+                        <constraint firstAttribute="trailing" secondItem="nWP-PO-KaC" secondAttribute="trailing" id="IJh-wc-ry6"/>
+                        <constraint firstItem="d6o-AG-Wzm" firstAttribute="leading" secondItem="GZ5-sY-HKJ" secondAttribute="leading" id="Iu3-LP-xgP"/>
+                        <constraint firstItem="d6o-AG-Wzm" firstAttribute="width" secondItem="0Mt-FO-kP1" secondAttribute="width" multiplier="0.26" id="KEU-4Z-fZq"/>
+                        <constraint firstItem="ZNA-Et-Bsw" firstAttribute="top" secondItem="0Mt-FO-kP1" secondAttribute="top" constant="10" id="iS9-iz-Ugb"/>
+                        <constraint firstAttribute="trailing" secondItem="ZNA-Et-Bsw" secondAttribute="trailing" constant="10" id="jas-TF-jbt"/>
+                        <constraint firstItem="GZ5-sY-HKJ" firstAttribute="leading" secondItem="0Mt-FO-kP1" secondAttribute="leading" constant="20" id="pIa-W8-cRV"/>
+                        <constraint firstAttribute="bottom" secondItem="nWP-PO-KaC" secondAttribute="bottom" id="v7b-yd-iED"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0Mt-FO-kP1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="3EG-zT-kb0"/>
+                <constraint firstItem="0Mt-FO-kP1" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="GsH-2N-ptg"/>
+                <constraint firstItem="0Mt-FO-kP1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="KqM-hE-RSV"/>
+                <constraint firstItem="0Mt-FO-kP1" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="PuJ-zh-5Pc"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="HappyCamper_Logo_Color_Vector-1 Copy 14" width="192" height="136"/>
+        <image name="bg" width="375" height="125"/>
+        <image name="facebook" width="30" height="30"/>
+        <image name="instagram" width="30" height="30"/>
+        <image name="pintrest" width="30" height="30"/>
+        <image name="twitter" width="30" height="30"/>
+        <image name="youtube" width="30" height="30"/>
+    </resources>
+</document>

@@ -1,0 +1,1429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B12E6B54B97C145CF8C1F5D /* Pods_HappyCamper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CAEC155B6F4F185ED9DB5D /* Pods_HappyCamper.framework */; };
+		32002FD82255003600A44E2B /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32002FD72255003600A44E2B /* CacheManager.swift */; };
+		3200C1AA2209595D00A6C814 /* SubCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3200C1A92209595D00A6C814 /* SubCategoryModel.swift */; };
+		3200DC5C223F649100B583B6 /* HCHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3200DC5B223F649100B583B6 /* HCHeaderView.swift */; };
+		3200DC5E223F64AA00B583B6 /* HCHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3200DC5D223F64AA00B583B6 /* HCHeaderView.xib */; };
+		32018E5C2244B664009343A7 /* HCStaticLinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32018E5B2244B664009343A7 /* HCStaticLinkVC.swift */; };
+		3204C7882223D18600D173FC /* AdvertisementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3204C7872223D18600D173FC /* AdvertisementVC.swift */; };
+		3206CDC0225F61EC0062EBF8 /* UploadFilePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3206CDBF225F61EC0062EBF8 /* UploadFilePopup.swift */; };
+		3206CDC3225F763F0062EBF8 /* RecentVideosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3206CDC2225F763F0062EBF8 /* RecentVideosVC.swift */; };
+		3206CDC52260BAE60062EBF8 /* SubscriptionDetailVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3206CDC42260BAE60062EBF8 /* SubscriptionDetailVIew.swift */; };
+		3214E68B22843F4A0096F6E2 /* iPhoneSplash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3214E68A22843F480096F6E2 /* iPhoneSplash@3x.png */; };
+		321579302202E14100FDCCCE /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215792F2202E14100FDCCCE /* ProfileVC.swift */; };
+		321877C921CA2C650046C778 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321877C821CA2C650046C778 /* SignUpVC.swift */; };
+		321D1BC522291BBF006C849B /* CoinCanteenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D1BC422291BBF006C849B /* CoinCanteenVC.swift */; };
+		321D1BC722292BCB006C849B /* CoinCanteenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D1BC622292BCB006C849B /* CoinCanteenVM.swift */; };
+		321D1BC922293DB6006C849B /* CoinCanteenCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D1BC822293DB6006C849B /* CoinCanteenCVC.swift */; };
+		321D1BCB222954C9006C849B /* CheckOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D1BCA222954C9006C849B /* CheckOutVC.swift */; };
+		321E19622265F5D100B89333 /* check.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 321E19602265F5CE00B89333 /* check.jpg */; };
+		321E19632265F5D100B89333 /* Uncheck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 321E19612265F5D000B89333 /* Uncheck.jpg */; };
+		321E19652267296B00B89333 /* ContestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321E19642267296B00B89333 /* ContestVC.swift */; };
+		3222897C2201795300D003A2 /* SubCategoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222897B2201795300D003A2 /* SubCategoryDetailVC.swift */; };
+		3222897E2201798900D003A2 /* SubCategoryDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222897D2201798900D003A2 /* SubCategoryDetailTVC.swift */; };
+		3222898022017C1800D003A2 /* SubCategoryDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3222897F22017C1800D003A2 /* SubCategoryDetailVM.swift */; };
+		32336B3F223B8962002A1D1A /* TimeCamp.gif in Resources */ = {isa = PBXBuildFile; fileRef = 32336B3E223B8961002A1D1A /* TimeCamp.gif */; };
+		323867F4220D66C90093A53A /* WebSeriesVideoDetailCatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323867F3220D66C90093A53A /* WebSeriesVideoDetailCatVC.swift */; };
+		323867F6220D7B830093A53A /* WebSeriesVideoDetailCatVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323867F5220D7B830093A53A /* WebSeriesVideoDetailCatVM.swift */; };
+		323867F8220D80E10093A53A /* WebVideoDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323867F7220D80E10093A53A /* WebVideoDetailTVC.swift */; };
+		323B8B1E21DCC46F005E92E6 /* ActivityHeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B8B1D21DCC46F005E92E6 /* ActivityHeaderCVC.swift */; };
+		323B8B2021DCC566005E92E6 /* ActivityTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B8B1F21DCC566005E92E6 /* ActivityTVC.swift */; };
+		323B8B2221DCC5D6005E92E6 /* LiveActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B8B2121DCC5D6005E92E6 /* LiveActivityVC.swift */; };
+		323B8B2421DCCD3A005E92E6 /* LiveActivityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B8B2321DCCD3A005E92E6 /* LiveActivityVM.swift */; };
+		323F240F225B21EE008357B1 /* CampfireVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323F240E225B21EE008357B1 /* CampfireVC.swift */; };
+		323F2412225B842A008357B1 /* CampfireAdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323F2411225B842A008357B1 /* CampfireAdCell.swift */; };
+		324B8BC121CD048A0047229B /* WebSeriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B8BC021CD048A0047229B /* WebSeriesVC.swift */; };
+		3250161521CB7DA500768975 /* SelectSubscriptionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3250161421CB7DA500768975 /* SelectSubscriptionCVC.swift */; };
+		3250161721CBAB5300768975 /* SelectSubscriptionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3250161621CBAB5300768975 /* SelectSubscriptionTVC.swift */; };
+		32645BC121D0B6C400FB8625 /* AdvertisementTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32645BBF21D0B6C400FB8625 /* AdvertisementTVC.swift */; };
+		32645BC221D0B6C400FB8625 /* AdvertisementTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32645BC021D0B6C400FB8625 /* AdvertisementTVC.xib */; };
+		32645BC421D0C35900FB8625 /* EpisodesDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32645BC321D0C35900FB8625 /* EpisodesDetailsTVC.swift */; };
+		32645BC821D0C5D500FB8625 /* EpisodesDetailsCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32645BC721D0C5D500FB8625 /* EpisodesDetailsCVC.swift */; };
+		32645BCA21D0EA6100FB8625 /* CastCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32645BC921D0EA6100FB8625 /* CastCVC.swift */; };
+		32645BCC21D0F95100FB8625 /* FooterCRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32645BCB21D0F95100FB8625 /* FooterCRC.swift */; };
+		32645BCE21D10DA500FB8625 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32645BCD21D10DA500FB8625 /* ChangePasswordVC.swift */; };
+		32645BD121D10FBA00FB8625 /* GuestLandingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32645BD021D10FBA00FB8625 /* GuestLandingVM.swift */; };
+		32645BD321D1116200FB8625 /* WebSeriesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32645BD221D1116200FB8625 /* WebSeriesVM.swift */; };
+		326B447722118E4700D2FC54 /* AboutUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326B447622118E4700D2FC54 /* AboutUsVC.swift */; };
+		326C704821D0A3B500527D1F /* GuestLandingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326C704721D0A3B500527D1F /* GuestLandingTVC.swift */; };
+		327376DB225CC34800018DB1 /* TabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 327376D3225CC34700018DB1 /* TabView.xib */; };
+		327376DD225CC34800018DB1 /* TabCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327376D5225CC34700018DB1 /* TabCollectionCell.swift */; };
+		327376DE225CC34800018DB1 /* TTMultipleTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327376D6225CC34700018DB1 /* TTMultipleTabVC.swift */; };
+		327376DF225CC34800018DB1 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327376D7225CC34700018DB1 /* TabView.swift */; };
+		327376E0225CC34800018DB1 /* TabCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 327376D8225CC34700018DB1 /* TabCollectionCell.xib */; };
+		327376E1225CC34800018DB1 /* TabPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327376D9225CC34700018DB1 /* TabPageViewController.swift */; };
+		327376E2225CC34800018DB1 /* TabPageOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327376DA225CC34700018DB1 /* TabPageOption.swift */; };
+		327376E5225CC51100018DB1 /* HotNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327376E4225CC51100018DB1 /* HotNewsVC.swift */; };
+		327376E7225CC53100018DB1 /* NewUpdatedNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327376E6225CC53100018DB1 /* NewUpdatedNewsVC.swift */; };
+		327376E9225CC54100018DB1 /* FeaturedNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327376E8225CC54100018DB1 /* FeaturedNewsVC.swift */; };
+		32809F1D21E86C62004A412A /* NearMeCampsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32809F1C21E86C62004A412A /* NearMeCampsVC.swift */; };
+		32809F1F21E86E81004A412A /* NearMeCampTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32809F1E21E86E81004A412A /* NearMeCampTVC.swift */; };
+		32809F2121E86EB2004A412A /* NearMeCampVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32809F2021E86EB2004A412A /* NearMeCampVM.swift */; };
+		32809F2321E8960C004A412A /* PopEnterInformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32809F2221E8960C004A412A /* PopEnterInformationVC.swift */; };
+		32809F2721E8C89E004A412A /* CampDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32809F2621E8C89E004A412A /* CampDetailVC.swift */; };
+		32810B8B21CCAF9900C36C83 /* SetCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32810B8321CCAF9800C36C83 /* SetCornerButton.swift */; };
+		32810B8E21CCAF9900C36C83 /* SetCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32810B8621CCAF9800C36C83 /* SetCornerImageView.swift */; };
+		32810B8F21CCAF9900C36C83 /* SetCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32810B8721CCAF9800C36C83 /* SetCornerView.swift */; };
+		32810B9121CCAF9900C36C83 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32810B8921CCAF9800C36C83 /* Constants.swift */; };
+		32810B9221CCAF9900C36C83 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32810B8A21CCAF9900C36C83 /* Extensions.swift */; };
+		32810B9621CCBA3D00C36C83 /* CampStoreCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32810B9521CCBA3D00C36C83 /* CampStoreCVC.swift */; };
+		32810B9821CCD4D400C36C83 /* CampStoreTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32810B9721CCD4D400C36C83 /* CampStoreTVC.swift */; };
+		3287D02E21F9EFDC00DCE3CF /* SelectColorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3287D02D21F9EFDC00DCE3CF /* SelectColorVC.swift */; };
+		32907C2221D23768008AC970 /* SignInVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32907C2121D23768008AC970 /* SignInVM.swift */; };
+		32907C2421D237CB008AC970 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32907C2321D237CB008AC970 /* SignUpVM.swift */; };
+		32907C2621D27B6D008AC970 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32907C2521D27B6D008AC970 /* Proxy.swift */; };
+		3291B6B7226D93C000E851E1 /* iPhoneSocialTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291B6B5226D93BF00E851E1 /* iPhoneSocialTabs.swift */; };
+		3291B6B8226D93C000E851E1 /* iPhoneSocialTabsXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3291B6B6226D93BF00E851E1 /* iPhoneSocialTabsXib.xib */; };
+		3291B6BA226EEE4D00E851E1 /* GuestLandingCounselorTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291B6B9226EEE4D00E851E1 /* GuestLandingCounselorTVC.swift */; };
+		3291B6BC226F0CA700E851E1 /* CounselorsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291B6BB226F0CA700E851E1 /* CounselorsCell.swift */; };
+		3291B6C92271DE1600E851E1 /* HCOpenVideoIphoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291B6C02271DE1600E851E1 /* HCOpenVideoIphoneVC.swift */; };
+		3291B6CA2271DE1600E851E1 /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291B6C42271DE1600E851E1 /* UISideMenuNavigationController.swift */; };
+		3291B6CB2271DE1600E851E1 /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291B6C52271DE1600E851E1 /* SideMenuManager.swift */; };
+		3291B6CC2271DE1600E851E1 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291B6C62271DE1600E851E1 /* SideMenuTransition.swift */; };
+		3291B6CD2271DE1600E851E1 /* UITableViewVibrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291B6C72271DE1600E851E1 /* UITableViewVibrantCell.swift */; };
+		3291B6CE2271DE1600E851E1 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291B6C82271DE1600E851E1 /* LeftMenuViewController.swift */; };
+		3293605221EC61BF0062B4A7 /* CampDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3293605121EC61BF0062B4A7 /* CampDetailVM.swift */; };
+		329575592227A3FB00DE0E9C /* CampfireBannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329575582227A3FB00DE0E9C /* CampfireBannerModel.swift */; };
+		32999C0821F040400011B728 /* CamperStaffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32999C0721F040400011B728 /* CamperStaffVC.swift */; };
+		32999C0A21F041F00011B728 /* CamperStaffVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32999C0921F041F00011B728 /* CamperStaffVM.swift */; };
+		32999C0D21F045C40011B728 /* CampStaffTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32999C0C21F045C40011B728 /* CampStaffTVC.swift */; };
+		32999C1121F056D20011B728 /* CounselorProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32999C1021F056D20011B728 /* CounselorProfileVC.swift */; };
+		32999C1621F06C760011B728 /* CounselorProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32999C1521F06C760011B728 /* CounselorProfileVM.swift */; };
+		3299B93E21E4649C000DD883 /* RegisterCampPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299B93D21E4649C000DD883 /* RegisterCampPaymentVC.swift */; };
+		3299B94421E46509000DD883 /* RegisterCampPaymentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299B94121E46509000DD883 /* RegisterCampPaymentVM.swift */; };
+		3299B94621E4A12E000DD883 /* CamperUploadDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299B94521E4A12E000DD883 /* CamperUploadDetailVC.swift */; };
+		3299B94821E4A156000DD883 /* CamperUploadDetailTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299B94721E4A156000DD883 /* CamperUploadDetailTVC.swift */; };
+		3299B94A21E4A783000DD883 /* CamperUploadDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3299B94921E4A783000DD883 /* CamperUploadDetailVM.swift */; };
+		329B61FA227C1B6400B9DF0C /* 1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 329B61F9227C1B6100B9DF0C /* 1@3x.png */; };
+		329B6210227C42C000B9DF0C /* icon_HomeScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 329B6204227C42B100B9DF0C /* icon_HomeScreen.png */; };
+		329B6211227C42C000B9DF0C /* UploadFileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 329B6205227C42B500B9DF0C /* UploadFileImage.png */; };
+		329B6214227C906500B9DF0C /* UIImageViewAligned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329B6213227C906400B9DF0C /* UIImageViewAligned.swift */; };
+		329C683621D3573C0048B096 /* MenuDrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329C683521D3573C0048B096 /* MenuDrawerController.swift */; };
+		329FAD3E22854229004CA17B /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 329FAD3C22854228004CA17B /* Montserrat-ExtraBold.otf */; };
+		329FAD3F22854229004CA17B /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 329FAD3D22854229004CA17B /* Montserrat-SemiBold.otf */; };
+		329FAD42228542E8004CA17B /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 329FAD40228542E7004CA17B /* Montserrat-Bold.otf */; };
+		329FAD43228542E8004CA17B /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 329FAD41228542E7004CA17B /* Montserrat-Black.otf */; };
+		329FAD46228BE629004CA17B /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329FAD45228BE629004CA17B /* iPhone.storyboard */; };
+		32A010E522815C6400756530 /* Signup list.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A010E422815C6200756530 /* Signup list.png */; };
+		32A010E722815E1100756530 /* Best_ValueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A010E622815E1000756530 /* Best_ValueArrow.png */; };
+		32A229E6221445F7005B797E /* FavouritesVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A229E5221445F7005B797E /* FavouritesVideoVC.swift */; };
+		32A229E822144650005B797E /* FavouritesVIdeoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A229E72214464F005B797E /* FavouritesVIdeoVM.swift */; };
+		32B1E71721DDE191003E0A08 /* CookingActivitieCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E71621DDE191003E0A08 /* CookingActivitieCVC.swift */; };
+		32B1E71921DDE33B003E0A08 /* CookingActivitiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E71821DDE33B003E0A08 /* CookingActivitiesVC.swift */; };
+		32B1E71B21DDE6CA003E0A08 /* CookingActivitiesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E71A21DDE6CA003E0A08 /* CookingActivitiesVM.swift */; };
+		32B1E71D21DDE80A003E0A08 /* CookingActivitiesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1E71C21DDE80A003E0A08 /* CookingActivitiesTVC.swift */; };
+		32BEC48122533A7A0023000F /* HCOpenVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BEC48022533A7A0023000F /* HCOpenVideoVC.swift */; };
+		32BEC4832253A87F0023000F /* AdCoinTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BEC4822253A87E0023000F /* AdCoinTVC.swift */; };
+		32C593B321FB127C00B0EF1A /* CamperCommunityTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C593B221FB127C00B0EF1A /* CamperCommunityTVC.swift */; };
+		32C94CEF2216F0A70004BB7B /* SubCategoryViewAllDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C94CEE2216F0A70004BB7B /* SubCategoryViewAllDetailVC.swift */; };
+		32C94CF32216F8160004BB7B /* SubCategoryViewAllDetailCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C94CF22216F8150004BB7B /* SubCategoryViewAllDetailCVC.swift */; };
+		32CA7E162204ACCE00DBA810 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CA7E152204ACCE00DBA810 /* TabbarViewController.swift */; };
+		32CA7E182205FFC200DBA810 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CA7E172205FFC200DBA810 /* ProfileVM.swift */; };
+		32CA7E1A2207FD6300DBA810 /* SelectColorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CA7E192207FD6300DBA810 /* SelectColorVM.swift */; };
+		32CA7E1E220851BE00DBA810 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CA7E1D220851BE00DBA810 /* UserModel.swift */; };
+		32CF4068222D28CD00881ACB /* InviteAFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CF4067222D28CD00881ACB /* InviteAFriendVC.swift */; };
+		32CF406A222D4EBB00881ACB /* JoinOurTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CF4069222D4EBB00881ACB /* JoinOurTeamVC.swift */; };
+		32CFC30E2215513100D65DB9 /* FavouritesCampsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CFC30D2215513100D65DB9 /* FavouritesCampsVC.swift */; };
+		32D3254521D39C2500823255 /* SelectSubscriptionPaymentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D3254421D39C2500823255 /* SelectSubscriptionPaymentVM.swift */; };
+		32D506F722325868006AD23B /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D506F222325868006AD23B /* Subscription.swift */; };
+		32D506F822325868006AD23B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D506F322325868006AD23B /* Session.swift */; };
+		32D506F922325868006AD23B /* PaidSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D506F422325868006AD23B /* PaidSubscription.swift */; };
+		32D506FA22325868006AD23B /* SelfieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D506F522325868006AD23B /* SelfieService.swift */; };
+		32D506FB22325868006AD23B /* SubscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D506F622325868006AD23B /* SubscriptionService.swift */; };
+		32D9D1AC21CD586A0078A701 /* SelectSubscriptionPaymentCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9D1AB21CD586A0078A701 /* SelectSubscriptionPaymentCVC.swift */; };
+		32D9D1AE21CD588B0078A701 /* SelectSubscriptionPaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9D1AD21CD588B0078A701 /* SelectSubscriptionPaymentVC.swift */; };
+		32D9D1B021CE6A050078A701 /* PopUpLogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9D1AF21CE6A050078A701 /* PopUpLogInVC.swift */; };
+		32D9D1B221CEB9760078A701 /* CastScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9D1B121CEB9760078A701 /* CastScreenVC.swift */; };
+		32D9D1B621CFBB5C0078A701 /* GuestLandingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9D1B521CFBB5C0078A701 /* GuestLandingPageVC.swift */; };
+		32D9D1B821CFBC490078A701 /* GuestLandingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9D1B721CFBC490078A701 /* GuestLandingCVC.swift */; };
+		32D9D1BC21CFE3CB0078A701 /* MenuPopUpTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9D1BB21CFE3CB0078A701 /* MenuPopUpTVC.swift */; };
+		32D9D1C221CFFC9D0078A701 /* RecoverPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9D1C121CFFC9D0078A701 /* RecoverPasswordVC.swift */; };
+		32E1116521C8B63000336162 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E1116421C8B63000336162 /* AppDelegate.swift */; };
+		32E1116721C8B63000336162 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E1116621C8B63000336162 /* SignInVC.swift */; };
+		32E1116A21C8B63000336162 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E1116821C8B63000336162 /* Main.storyboard */; };
+		32E1116C21C8B63200336162 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32E1116B21C8B63200336162 /* Assets.xcassets */; };
+		32E1116F21C8B63200336162 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E1116D21C8B63200336162 /* LaunchScreen.storyboard */; };
+		32E38A032264C55F00265CF6 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E38A022264C55F00265CF6 /* CloudKit.framework */; };
+		32E56DFA2212A6A1003FD4B0 /* MyTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E56DF92212A6A1003FD4B0 /* MyTransactionVC.swift */; };
+		32E56DFC2212B334003FD4B0 /* MyTransactionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E56DFB2212B334003FD4B0 /* MyTransactionVM.swift */; };
+		32E56DFE2212D66D003FD4B0 /* CampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E56DFD2212D66D003FD4B0 /* CampModel.swift */; };
+		32E98AD621F874BF00C4595C /* GuestLandingBannerCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E98AD521F874BF00C4595C /* GuestLandingBannerCVC.swift */; };
+		32F166F4220410BE00529AD6 /* WebServiceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F166F3220410BE00529AD6 /* WebServiceProxy.swift */; };
+		32F166F72204251A00529AD6 /* GuestLandingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F166F62204251A00529AD6 /* GuestLandingModel.swift */; };
+		32F5096721DCECDF002D9F9A /* CampActivityTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F5096621DCECDF002D9F9A /* CampActivityTVC.swift */; };
+		32F5096921DCEF59002D9F9A /* CampActivityCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F5096821DCEF59002D9F9A /* CampActivityCVC.swift */; };
+		32F5BE7D21D4D15E00F4960D /* JoinCampSubscriptionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F5BE7C21D4D15E00F4960D /* JoinCampSubscriptionCVC.swift */; };
+		32F8154B21F1A7E600B19377 /* CamperActivityDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8154A21F1A7E600B19377 /* CamperActivityDetailVC.swift */; };
+		32F8154D21F1A98900B19377 /* CamperActivityTodayCampTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8154C21F1A98900B19377 /* CamperActivityTodayCampTVC.swift */; };
+		32F8154F21F1AAEC00B19377 /* CamperActivityDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F8154E21F1AAEC00B19377 /* CamperActivityDetailVM.swift */; };
+		32FC9B85224C97D300AB8C35 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FC9B84224C97D200AB8C35 /* ShadowView.swift */; };
+		32FEF0F52200126F006B9C26 /* CampInformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEF0F42200126F006B9C26 /* CampInformationVC.swift */; };
+		32FEF1012200326D006B9C26 /* MemberBenefitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEF1002200326D006B9C26 /* MemberBenefitsVC.swift */; };
+		32FEF10622008434006B9C26 /* SubCategoriesVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEF10522008434006B9C26 /* SubCategoriesVideoVC.swift */; };
+		32FEF108220084B2006B9C26 /* SubCategoryVideosTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEF107220084B2006B9C26 /* SubCategoryVideosTVC.swift */; };
+		32FEF10A22008557006B9C26 /* SubCategoriesVideoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEF10922008557006B9C26 /* SubCategoriesVideoVM.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03CAEC155B6F4F185ED9DB5D /* Pods_HappyCamper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HappyCamper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25BB155BD17A99417F918DF9 /* Pods-HappyCamper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyCamper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HappyCamper/Pods-HappyCamper.debug.xcconfig"; sourceTree = "<group>"; };
+		32002FD72255003600A44E2B /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		3200C1A92209595D00A6C814 /* SubCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryModel.swift; sourceTree = "<group>"; };
+		3200DC5B223F649100B583B6 /* HCHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCHeaderView.swift; sourceTree = "<group>"; };
+		3200DC5D223F64AA00B583B6 /* HCHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HCHeaderView.xib; sourceTree = "<group>"; };
+		32018E5B2244B664009343A7 /* HCStaticLinkVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCStaticLinkVC.swift; sourceTree = "<group>"; };
+		3204C7872223D18600D173FC /* AdvertisementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementVC.swift; sourceTree = "<group>"; };
+		3206CDBF225F61EC0062EBF8 /* UploadFilePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFilePopup.swift; sourceTree = "<group>"; };
+		3206CDC2225F763F0062EBF8 /* RecentVideosVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentVideosVC.swift; sourceTree = "<group>"; };
+		3206CDC42260BAE60062EBF8 /* SubscriptionDetailVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionDetailVIew.swift; sourceTree = "<group>"; };
+		3214E68A22843F480096F6E2 /* iPhoneSplash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhoneSplash@3x.png"; sourceTree = "<group>"; };
+		3215792F2202E14100FDCCCE /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		321877C821CA2C650046C778 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		321D1BC422291BBF006C849B /* CoinCanteenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCanteenVC.swift; sourceTree = "<group>"; };
+		321D1BC622292BCB006C849B /* CoinCanteenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCanteenVM.swift; sourceTree = "<group>"; };
+		321D1BC822293DB6006C849B /* CoinCanteenCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCanteenCVC.swift; sourceTree = "<group>"; };
+		321D1BCA222954C9006C849B /* CheckOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutVC.swift; sourceTree = "<group>"; };
+		321E19602265F5CE00B89333 /* check.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = check.jpg; sourceTree = "<group>"; };
+		321E19612265F5D000B89333 /* Uncheck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Uncheck.jpg; sourceTree = "<group>"; };
+		321E19642267296B00B89333 /* ContestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContestVC.swift; sourceTree = "<group>"; };
+		3222897B2201795300D003A2 /* SubCategoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryDetailVC.swift; sourceTree = "<group>"; };
+		3222897D2201798900D003A2 /* SubCategoryDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryDetailTVC.swift; sourceTree = "<group>"; };
+		3222897F22017C1800D003A2 /* SubCategoryDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryDetailVM.swift; sourceTree = "<group>"; };
+		32336B3E223B8961002A1D1A /* TimeCamp.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = TimeCamp.gif; sourceTree = "<group>"; };
+		323867F3220D66C90093A53A /* WebSeriesVideoDetailCatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSeriesVideoDetailCatVC.swift; sourceTree = "<group>"; };
+		323867F5220D7B830093A53A /* WebSeriesVideoDetailCatVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSeriesVideoDetailCatVM.swift; sourceTree = "<group>"; };
+		323867F7220D80E10093A53A /* WebVideoDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVideoDetailTVC.swift; sourceTree = "<group>"; };
+		323B8B1D21DCC46F005E92E6 /* ActivityHeaderCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderCVC.swift; sourceTree = "<group>"; };
+		323B8B1F21DCC566005E92E6 /* ActivityTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTVC.swift; sourceTree = "<group>"; };
+		323B8B2121DCC5D6005E92E6 /* LiveActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityVC.swift; sourceTree = "<group>"; };
+		323B8B2321DCCD3A005E92E6 /* LiveActivityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityVM.swift; sourceTree = "<group>"; };
+		323F240E225B21EE008357B1 /* CampfireVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampfireVC.swift; sourceTree = "<group>"; };
+		323F2411225B842A008357B1 /* CampfireAdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampfireAdCell.swift; sourceTree = "<group>"; };
+		324B8BC021CD048A0047229B /* WebSeriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSeriesVC.swift; sourceTree = "<group>"; };
+		3250161421CB7DA500768975 /* SelectSubscriptionCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubscriptionCVC.swift; sourceTree = "<group>"; };
+		3250161621CBAB5300768975 /* SelectSubscriptionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubscriptionTVC.swift; sourceTree = "<group>"; };
+		32645BBF21D0B6C400FB8625 /* AdvertisementTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementTVC.swift; sourceTree = "<group>"; };
+		32645BC021D0B6C400FB8625 /* AdvertisementTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertisementTVC.xib; sourceTree = "<group>"; };
+		32645BC321D0C35900FB8625 /* EpisodesDetailsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesDetailsTVC.swift; sourceTree = "<group>"; };
+		32645BC721D0C5D500FB8625 /* EpisodesDetailsCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesDetailsCVC.swift; sourceTree = "<group>"; };
+		32645BC921D0EA6100FB8625 /* CastCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCVC.swift; sourceTree = "<group>"; };
+		32645BCB21D0F95100FB8625 /* FooterCRC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCRC.swift; sourceTree = "<group>"; };
+		32645BCD21D10DA500FB8625 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		32645BD021D10FBA00FB8625 /* GuestLandingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestLandingVM.swift; sourceTree = "<group>"; };
+		32645BD221D1116200FB8625 /* WebSeriesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSeriesVM.swift; sourceTree = "<group>"; };
+		326B447622118E4700D2FC54 /* AboutUsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsVC.swift; sourceTree = "<group>"; };
+		326C704721D0A3B500527D1F /* GuestLandingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestLandingTVC.swift; sourceTree = "<group>"; };
+		327376D3225CC34700018DB1 /* TabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabView.xib; sourceTree = "<group>"; };
+		327376D5225CC34700018DB1 /* TabCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabCollectionCell.swift; sourceTree = "<group>"; };
+		327376D6225CC34700018DB1 /* TTMultipleTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTMultipleTabVC.swift; sourceTree = "<group>"; };
+		327376D7225CC34700018DB1 /* TabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		327376D8225CC34700018DB1 /* TabCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabCollectionCell.xib; sourceTree = "<group>"; };
+		327376D9225CC34700018DB1 /* TabPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabPageViewController.swift; sourceTree = "<group>"; };
+		327376DA225CC34700018DB1 /* TabPageOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabPageOption.swift; sourceTree = "<group>"; };
+		327376E4225CC51100018DB1 /* HotNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsVC.swift; sourceTree = "<group>"; };
+		327376E6225CC53100018DB1 /* NewUpdatedNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUpdatedNewsVC.swift; sourceTree = "<group>"; };
+		327376E8225CC54100018DB1 /* FeaturedNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedNewsVC.swift; sourceTree = "<group>"; };
+		32809F1C21E86C62004A412A /* NearMeCampsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearMeCampsVC.swift; sourceTree = "<group>"; };
+		32809F1E21E86E81004A412A /* NearMeCampTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearMeCampTVC.swift; sourceTree = "<group>"; };
+		32809F2021E86EB2004A412A /* NearMeCampVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearMeCampVM.swift; sourceTree = "<group>"; };
+		32809F2221E8960C004A412A /* PopEnterInformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopEnterInformationVC.swift; sourceTree = "<group>"; };
+		32809F2621E8C89E004A412A /* CampDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampDetailVC.swift; sourceTree = "<group>"; };
+		32810B8321CCAF9800C36C83 /* SetCornerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCornerButton.swift; sourceTree = "<group>"; };
+		32810B8621CCAF9800C36C83 /* SetCornerImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCornerImageView.swift; sourceTree = "<group>"; };
+		32810B8721CCAF9800C36C83 /* SetCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCornerView.swift; sourceTree = "<group>"; };
+		32810B8921CCAF9800C36C83 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		32810B8A21CCAF9900C36C83 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		32810B9521CCBA3D00C36C83 /* CampStoreCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampStoreCVC.swift; sourceTree = "<group>"; };
+		32810B9721CCD4D400C36C83 /* CampStoreTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampStoreTVC.swift; sourceTree = "<group>"; };
+		3287D02D21F9EFDC00DCE3CF /* SelectColorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColorVC.swift; sourceTree = "<group>"; };
+		32907C2121D23768008AC970 /* SignInVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVM.swift; sourceTree = "<group>"; };
+		32907C2321D237CB008AC970 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
+		32907C2521D27B6D008AC970 /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		3291B6B5226D93BF00E851E1 /* iPhoneSocialTabs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneSocialTabs.swift; sourceTree = "<group>"; };
+		3291B6B6226D93BF00E851E1 /* iPhoneSocialTabsXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iPhoneSocialTabsXib.xib; sourceTree = "<group>"; };
+		3291B6B9226EEE4D00E851E1 /* GuestLandingCounselorTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestLandingCounselorTVC.swift; sourceTree = "<group>"; };
+		3291B6BB226F0CA700E851E1 /* CounselorsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselorsCell.swift; sourceTree = "<group>"; };
+		3291B6C02271DE1600E851E1 /* HCOpenVideoIphoneVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCOpenVideoIphoneVC.swift; sourceTree = "<group>"; };
+		3291B6C32271DE1600E851E1 /* SideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenu.h; sourceTree = "<group>"; };
+		3291B6C42271DE1600E851E1 /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISideMenuNavigationController.swift; sourceTree = "<group>"; };
+		3291B6C52271DE1600E851E1 /* SideMenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuManager.swift; sourceTree = "<group>"; };
+		3291B6C62271DE1600E851E1 /* SideMenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTransition.swift; sourceTree = "<group>"; };
+		3291B6C72271DE1600E851E1 /* UITableViewVibrantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewVibrantCell.swift; sourceTree = "<group>"; };
+		3291B6C82271DE1600E851E1 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		3293605121EC61BF0062B4A7 /* CampDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampDetailVM.swift; sourceTree = "<group>"; };
+		329575582227A3FB00DE0E9C /* CampfireBannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampfireBannerModel.swift; sourceTree = "<group>"; };
+		32999C0721F040400011B728 /* CamperStaffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamperStaffVC.swift; sourceTree = "<group>"; };
+		32999C0921F041F00011B728 /* CamperStaffVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamperStaffVM.swift; sourceTree = "<group>"; };
+		32999C0C21F045C40011B728 /* CampStaffTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampStaffTVC.swift; sourceTree = "<group>"; };
+		32999C1021F056D20011B728 /* CounselorProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselorProfileVC.swift; sourceTree = "<group>"; };
+		32999C1521F06C760011B728 /* CounselorProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounselorProfileVM.swift; sourceTree = "<group>"; };
+		3299B93D21E4649C000DD883 /* RegisterCampPaymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterCampPaymentVC.swift; sourceTree = "<group>"; };
+		3299B94121E46509000DD883 /* RegisterCampPaymentVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterCampPaymentVM.swift; sourceTree = "<group>"; };
+		3299B94521E4A12E000DD883 /* CamperUploadDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamperUploadDetailVC.swift; sourceTree = "<group>"; };
+		3299B94721E4A156000DD883 /* CamperUploadDetailTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamperUploadDetailTVC.swift; sourceTree = "<group>"; };
+		3299B94921E4A783000DD883 /* CamperUploadDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamperUploadDetailVM.swift; sourceTree = "<group>"; };
+		329B61F9227C1B6100B9DF0C /* 1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@3x.png"; sourceTree = "<group>"; };
+		329B6204227C42B100B9DF0C /* icon_HomeScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_HomeScreen.png; sourceTree = "<group>"; };
+		329B6205227C42B500B9DF0C /* UploadFileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UploadFileImage.png; sourceTree = "<group>"; };
+		329B6213227C906400B9DF0C /* UIImageViewAligned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewAligned.swift; sourceTree = "<group>"; };
+		329C683521D3573C0048B096 /* MenuDrawerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDrawerController.swift; sourceTree = "<group>"; };
+		329FAD3C22854228004CA17B /* Montserrat-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.otf"; sourceTree = "<group>"; };
+		329FAD3D22854229004CA17B /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		329FAD40228542E7004CA17B /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		329FAD41228542E7004CA17B /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
+		329FAD45228BE629004CA17B /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		32A010E422815C6200756530 /* Signup list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Signup list.png"; sourceTree = "<group>"; };
+		32A010E622815E1000756530 /* Best_ValueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Best_ValueArrow.png; sourceTree = "<group>"; };
+		32A229E5221445F7005B797E /* FavouritesVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVideoVC.swift; sourceTree = "<group>"; };
+		32A229E72214464F005B797E /* FavouritesVIdeoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVIdeoVM.swift; sourceTree = "<group>"; };
+		32B1E71621DDE191003E0A08 /* CookingActivitieCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingActivitieCVC.swift; sourceTree = "<group>"; };
+		32B1E71821DDE33B003E0A08 /* CookingActivitiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingActivitiesVC.swift; sourceTree = "<group>"; };
+		32B1E71A21DDE6CA003E0A08 /* CookingActivitiesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingActivitiesVM.swift; sourceTree = "<group>"; };
+		32B1E71C21DDE80A003E0A08 /* CookingActivitiesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingActivitiesTVC.swift; sourceTree = "<group>"; };
+		32BEC48022533A7A0023000F /* HCOpenVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HCOpenVideoVC.swift; sourceTree = "<group>"; };
+		32BEC4822253A87E0023000F /* AdCoinTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdCoinTVC.swift; sourceTree = "<group>"; };
+		32C593B221FB127C00B0EF1A /* CamperCommunityTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamperCommunityTVC.swift; sourceTree = "<group>"; };
+		32C94CEE2216F0A70004BB7B /* SubCategoryViewAllDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewAllDetailVC.swift; sourceTree = "<group>"; };
+		32C94CF22216F8150004BB7B /* SubCategoryViewAllDetailCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewAllDetailCVC.swift; sourceTree = "<group>"; };
+		32CA7E152204ACCE00DBA810 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		32CA7E172205FFC200DBA810 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		32CA7E192207FD6300DBA810 /* SelectColorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColorVM.swift; sourceTree = "<group>"; };
+		32CA7E1D220851BE00DBA810 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		32CF4067222D28CD00881ACB /* InviteAFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteAFriendVC.swift; sourceTree = "<group>"; };
+		32CF4069222D4EBB00881ACB /* JoinOurTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinOurTeamVC.swift; sourceTree = "<group>"; };
+		32CFC30D2215513100D65DB9 /* FavouritesCampsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCampsVC.swift; sourceTree = "<group>"; };
+		32D3254421D39C2500823255 /* SelectSubscriptionPaymentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubscriptionPaymentVM.swift; sourceTree = "<group>"; };
+		32D506F222325868006AD23B /* Subscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
+		32D506F322325868006AD23B /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		32D506F422325868006AD23B /* PaidSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaidSubscription.swift; sourceTree = "<group>"; };
+		32D506F522325868006AD23B /* SelfieService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieService.swift; sourceTree = "<group>"; };
+		32D506F622325868006AD23B /* SubscriptionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionService.swift; sourceTree = "<group>"; };
+		32D5074922327720006AD23B /* Montserrat-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.otf"; sourceTree = "<group>"; };
+		32D5074B22327721006AD23B /* Montserrat-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.otf"; sourceTree = "<group>"; };
+		32D5074C22327721006AD23B /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		32D9D1AB21CD586A0078A701 /* SelectSubscriptionPaymentCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubscriptionPaymentCVC.swift; sourceTree = "<group>"; };
+		32D9D1AD21CD588B0078A701 /* SelectSubscriptionPaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubscriptionPaymentVC.swift; sourceTree = "<group>"; };
+		32D9D1AF21CE6A050078A701 /* PopUpLogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpLogInVC.swift; sourceTree = "<group>"; };
+		32D9D1B121CEB9760078A701 /* CastScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastScreenVC.swift; sourceTree = "<group>"; };
+		32D9D1B521CFBB5C0078A701 /* GuestLandingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestLandingPageVC.swift; sourceTree = "<group>"; };
+		32D9D1B721CFBC490078A701 /* GuestLandingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestLandingCVC.swift; sourceTree = "<group>"; };
+		32D9D1BB21CFE3CB0078A701 /* MenuPopUpTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPopUpTVC.swift; sourceTree = "<group>"; };
+		32D9D1C121CFFC9D0078A701 /* RecoverPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordVC.swift; sourceTree = "<group>"; };
+		32E1116121C8B63000336162 /* HappyCamper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyCamper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32E1116421C8B63000336162 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		32E1116621C8B63000336162 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		32E1116921C8B63000336162 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		32E1116B21C8B63200336162 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		32E1116E21C8B63200336162 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		32E1117021C8B63200336162 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32E38A012264BD2300265CF6 /* HappyCamper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HappyCamper.entitlements; sourceTree = "<group>"; };
+		32E38A022264C55F00265CF6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		32E56DF92212A6A1003FD4B0 /* MyTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTransactionVC.swift; sourceTree = "<group>"; };
+		32E56DFB2212B334003FD4B0 /* MyTransactionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTransactionVM.swift; sourceTree = "<group>"; };
+		32E56DFD2212D66D003FD4B0 /* CampModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampModel.swift; sourceTree = "<group>"; };
+		32E98AD521F874BF00C4595C /* GuestLandingBannerCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestLandingBannerCVC.swift; sourceTree = "<group>"; };
+		32F166F3220410BE00529AD6 /* WebServiceProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceProxy.swift; sourceTree = "<group>"; };
+		32F166F62204251A00529AD6 /* GuestLandingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestLandingModel.swift; sourceTree = "<group>"; };
+		32F5096621DCECDF002D9F9A /* CampActivityTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampActivityTVC.swift; sourceTree = "<group>"; };
+		32F5096821DCEF59002D9F9A /* CampActivityCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampActivityCVC.swift; sourceTree = "<group>"; };
+		32F5BE7C21D4D15E00F4960D /* JoinCampSubscriptionCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCampSubscriptionCVC.swift; sourceTree = "<group>"; };
+		32F8154A21F1A7E600B19377 /* CamperActivityDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamperActivityDetailVC.swift; sourceTree = "<group>"; };
+		32F8154C21F1A98900B19377 /* CamperActivityTodayCampTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamperActivityTodayCampTVC.swift; sourceTree = "<group>"; };
+		32F8154E21F1AAEC00B19377 /* CamperActivityDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamperActivityDetailVM.swift; sourceTree = "<group>"; };
+		32FC9B84224C97D200AB8C35 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		32FEF0F42200126F006B9C26 /* CampInformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampInformationVC.swift; sourceTree = "<group>"; };
+		32FEF1002200326D006B9C26 /* MemberBenefitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberBenefitsVC.swift; sourceTree = "<group>"; };
+		32FEF10522008434006B9C26 /* SubCategoriesVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesVideoVC.swift; sourceTree = "<group>"; };
+		32FEF107220084B2006B9C26 /* SubCategoryVideosTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryVideosTVC.swift; sourceTree = "<group>"; };
+		32FEF10922008557006B9C26 /* SubCategoriesVideoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesVideoVM.swift; sourceTree = "<group>"; };
+		930DF6265469B1FCF23E234C /* Pods-HappyCamper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyCamper.release.xcconfig"; path = "Pods/Target Support Files/Pods-HappyCamper/Pods-HappyCamper.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32E1115E21C8B63000336162 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B12E6B54B97C145CF8C1F5D /* Pods_HappyCamper.framework in Frameworks */,
+				32E38A032264C55F00265CF6 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3200DC5A223F643200B583B6 /* Header View */ = {
+			isa = PBXGroup;
+			children = (
+				3200DC5B223F649100B583B6 /* HCHeaderView.swift */,
+				3200DC5D223F64AA00B583B6 /* HCHeaderView.xib */,
+			);
+			path = "Header View";
+			sourceTree = "<group>";
+		};
+		32018E5A2244B62C009343A7 /* Static Links */ = {
+			isa = PBXGroup;
+			children = (
+				32018E5B2244B664009343A7 /* HCStaticLinkVC.swift */,
+			);
+			path = "Static Links";
+			sourceTree = "<group>";
+		};
+		3206CDBE225F61CC0062EBF8 /* UploadFile */ = {
+			isa = PBXGroup;
+			children = (
+				3206CDBF225F61EC0062EBF8 /* UploadFilePopup.swift */,
+			);
+			path = UploadFile;
+			sourceTree = "<group>";
+		};
+		3206CDC1225F76130062EBF8 /* Campfire */ = {
+			isa = PBXGroup;
+			children = (
+				3206CDBE225F61CC0062EBF8 /* UploadFile */,
+				327376E3225CC4EF00018DB1 /* Update News Controllers */,
+				323F2410225B83EB008357B1 /* Cells */,
+				323F240E225B21EE008357B1 /* CampfireVC.swift */,
+				321E19642267296B00B89333 /* ContestVC.swift */,
+			);
+			path = Campfire;
+			sourceTree = "<group>";
+		};
+		3214E68C22845E2B0096F6E2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3214E68A22843F480096F6E2 /* iPhoneSplash@3x.png */,
+				32A010E622815E1000756530 /* Best_ValueArrow.png */,
+				32A010E422815C6200756530 /* Signup list.png */,
+				329B6204227C42B100B9DF0C /* icon_HomeScreen.png */,
+				329B6205227C42B500B9DF0C /* UploadFileImage.png */,
+				329B61F9227C1B6100B9DF0C /* 1@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		321877C121CA10650046C778 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				32810B8921CCAF9800C36C83 /* Constants.swift */,
+				32907C2521D27B6D008AC970 /* Proxy.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		321E195F2265F5C400B89333 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				321E19602265F5CE00B89333 /* check.jpg */,
+				321E19612265F5D000B89333 /* Uncheck.jpg */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		32336B3C223B8924002A1D1A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				321E195F2265F5C400B89333 /* Icons */,
+				32D5074722327714006AD23B /* Fonts */,
+				329C683721D357410048B096 /* Common Class */,
+				32810B8221CCAF5A00C36C83 /* Helper Classes */,
+				32336B3D223B8931002A1D1A /* Gif */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		32336B3D223B8931002A1D1A /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+				32336B3E223B8961002A1D1A /* TimeCamp.gif */,
+			);
+			path = Gif;
+			sourceTree = "<group>";
+		};
+		323F240D225B21C3008357B1 /* Header Options */ = {
+			isa = PBXGroup;
+			children = (
+				3206CDC1225F76130062EBF8 /* Campfire */,
+			);
+			path = "Header Options";
+			sourceTree = "<group>";
+		};
+		323F2410225B83EB008357B1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				323F2411225B842A008357B1 /* CampfireAdCell.swift */,
+				3291B6BB226F0CA700E851E1 /* CounselorsCell.swift */,
+			);
+			name = Cells;
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		3250161321CB7D8300768975 /* CellClasses */ = {
+			isa = PBXGroup;
+			children = (
+				3250161421CB7DA500768975 /* SelectSubscriptionCVC.swift */,
+				3250161621CBAB5300768975 /* SelectSubscriptionTVC.swift */,
+				32810B9521CCBA3D00C36C83 /* CampStoreCVC.swift */,
+				32810B9721CCD4D400C36C83 /* CampStoreTVC.swift */,
+				32D9D1AB21CD586A0078A701 /* SelectSubscriptionPaymentCVC.swift */,
+				32D9D1BB21CFE3CB0078A701 /* MenuPopUpTVC.swift */,
+				32645BBF21D0B6C400FB8625 /* AdvertisementTVC.swift */,
+				32645BC021D0B6C400FB8625 /* AdvertisementTVC.xib */,
+				32F5BE7C21D4D15E00F4960D /* JoinCampSubscriptionCVC.swift */,
+				323B8B1D21DCC46F005E92E6 /* ActivityHeaderCVC.swift */,
+				323B8B1F21DCC566005E92E6 /* ActivityTVC.swift */,
+				32B1E71621DDE191003E0A08 /* CookingActivitieCVC.swift */,
+				3299B94721E4A156000DD883 /* CamperUploadDetailTVC.swift */,
+				32809F1E21E86E81004A412A /* NearMeCampTVC.swift */,
+				32999C0C21F045C40011B728 /* CampStaffTVC.swift */,
+				32F8154C21F1A98900B19377 /* CamperActivityTodayCampTVC.swift */,
+				32C593B221FB127C00B0EF1A /* CamperCommunityTVC.swift */,
+				32F5096821DCEF59002D9F9A /* CampActivityCVC.swift */,
+				32F5096621DCECDF002D9F9A /* CampActivityTVC.swift */,
+				32B1E71C21DDE80A003E0A08 /* CookingActivitiesTVC.swift */,
+				32645BCB21D0F95100FB8625 /* FooterCRC.swift */,
+			);
+			name = CellClasses;
+			path = HappyCamper/CellClasses;
+			sourceTree = "<group>";
+		};
+		32645BCF21D10F7E00FB8625 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				327376D2225CC34700018DB1 /* TabbarControllers */,
+				3200DC5A223F643200B583B6 /* Header View */,
+				3299B94121E46509000DD883 /* RegisterCampPaymentVM.swift */,
+				32BEC4822253A87E0023000F /* AdCoinTVC.swift */,
+				32907C2121D23768008AC970 /* SignInVM.swift */,
+				32907C2321D237CB008AC970 /* SignUpVM.swift */,
+				32D3254421D39C2500823255 /* SelectSubscriptionPaymentVM.swift */,
+				323B8B2321DCCD3A005E92E6 /* LiveActivityVM.swift */,
+				32B1E71A21DDE6CA003E0A08 /* CookingActivitiesVM.swift */,
+				3299B94921E4A783000DD883 /* CamperUploadDetailVM.swift */,
+				32809F2021E86EB2004A412A /* NearMeCampVM.swift */,
+				3293605121EC61BF0062B4A7 /* CampDetailVM.swift */,
+				32999C0921F041F00011B728 /* CamperStaffVM.swift */,
+				32999C1521F06C760011B728 /* CounselorProfileVM.swift */,
+				32F8154E21F1AAEC00B19377 /* CamperActivityDetailVM.swift */,
+				32CA7E172205FFC200DBA810 /* ProfileVM.swift */,
+				32CA7E192207FD6300DBA810 /* SelectColorVM.swift */,
+				32E56DFB2212B334003FD4B0 /* MyTransactionVM.swift */,
+				32A229E72214464F005B797E /* FavouritesVIdeoVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		327376D2225CC34700018DB1 /* TabbarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				327376D3225CC34700018DB1 /* TabView.xib */,
+				327376D5225CC34700018DB1 /* TabCollectionCell.swift */,
+				327376D6225CC34700018DB1 /* TTMultipleTabVC.swift */,
+				327376D7225CC34700018DB1 /* TabView.swift */,
+				327376D8225CC34700018DB1 /* TabCollectionCell.xib */,
+				327376D9225CC34700018DB1 /* TabPageViewController.swift */,
+				327376DA225CC34700018DB1 /* TabPageOption.swift */,
+			);
+			path = TabbarControllers;
+			sourceTree = "<group>";
+		};
+		327376E3225CC4EF00018DB1 /* Update News Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				327376E4225CC51100018DB1 /* HotNewsVC.swift */,
+				327376E6225CC53100018DB1 /* NewUpdatedNewsVC.swift */,
+				327376E8225CC54100018DB1 /* FeaturedNewsVC.swift */,
+			);
+			path = "Update News Controllers";
+			sourceTree = "<group>";
+		};
+		32810B8221CCAF5A00C36C83 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				32FC9B84224C97D200AB8C35 /* ShadowView.swift */,
+				32F166F3220410BE00529AD6 /* WebServiceProxy.swift */,
+				32810B8A21CCAF9900C36C83 /* Extensions.swift */,
+				32810B8321CCAF9800C36C83 /* SetCornerButton.swift */,
+				32810B8621CCAF9800C36C83 /* SetCornerImageView.swift */,
+				32810B8721CCAF9800C36C83 /* SetCornerView.swift */,
+			);
+			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		3291B6B4226D93BF00E851E1 /* iPhoneXib */ = {
+			isa = PBXGroup;
+			children = (
+				3291B6B5226D93BF00E851E1 /* iPhoneSocialTabs.swift */,
+				3291B6B6226D93BF00E851E1 /* iPhoneSocialTabsXib.xib */,
+			);
+			path = iPhoneXib;
+			sourceTree = "<group>";
+		};
+		3291B6BF2271DE1600E851E1 /* iPhone Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3291B6C12271DE1600E851E1 /* Third Parties */,
+				3291B6C02271DE1600E851E1 /* HCOpenVideoIphoneVC.swift */,
+				3291B6C82271DE1600E851E1 /* LeftMenuViewController.swift */,
+			);
+			path = "iPhone Classes";
+			sourceTree = "<group>";
+		};
+		3291B6C12271DE1600E851E1 /* Third Parties */ = {
+			isa = PBXGroup;
+			children = (
+				3291B6C22271DE1600E851E1 /* Side Menu */,
+			);
+			path = "Third Parties";
+			sourceTree = "<group>";
+		};
+		3291B6C22271DE1600E851E1 /* Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				3291B6C32271DE1600E851E1 /* SideMenu.h */,
+				3291B6C42271DE1600E851E1 /* UISideMenuNavigationController.swift */,
+				3291B6C52271DE1600E851E1 /* SideMenuManager.swift */,
+				3291B6C62271DE1600E851E1 /* SideMenuTransition.swift */,
+				3291B6C72271DE1600E851E1 /* UITableViewVibrantCell.swift */,
+			);
+			path = "Side Menu";
+			sourceTree = "<group>";
+		};
+		329C683721D357410048B096 /* Common Class */ = {
+			isa = PBXGroup;
+			children = (
+				329C683521D3573C0048B096 /* MenuDrawerController.swift */,
+				32CA7E152204ACCE00DBA810 /* TabbarViewController.swift */,
+				3204C7872223D18600D173FC /* AdvertisementVC.swift */,
+			);
+			path = "Common Class";
+			sourceTree = "<group>";
+		};
+		32BEC47F22533A5D0023000F /* Open Video Popup */ = {
+			isa = PBXGroup;
+			children = (
+				32BEC48022533A7A0023000F /* HCOpenVideoVC.swift */,
+			);
+			path = "Open Video Popup";
+			sourceTree = "<group>";
+		};
+		32BEC484225496620023000F /* SubCategoryViewAll */ = {
+			isa = PBXGroup;
+			children = (
+				32C94CEE2216F0A70004BB7B /* SubCategoryViewAllDetailVC.swift */,
+				32C94CF22216F8150004BB7B /* SubCategoryViewAllDetailCVC.swift */,
+			);
+			path = SubCategoryViewAll;
+			sourceTree = "<group>";
+		};
+		32D506F122325838006AD23B /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				32D506F422325868006AD23B /* PaidSubscription.swift */,
+				32D506F522325868006AD23B /* SelfieService.swift */,
+				32D506F322325868006AD23B /* Session.swift */,
+				32D506F222325868006AD23B /* Subscription.swift */,
+				32D506F622325868006AD23B /* SubscriptionService.swift */,
+				3206CDC42260BAE60062EBF8 /* SubscriptionDetailVIew.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
+		32D5074722327714006AD23B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				329FAD41228542E7004CA17B /* Montserrat-Black.otf */,
+				329FAD40228542E7004CA17B /* Montserrat-Bold.otf */,
+				32D5074922327720006AD23B /* Montserrat-ExtraLight.otf */,
+				32D5074B22327721006AD23B /* Montserrat-Medium.otf */,
+				32D5074C22327721006AD23B /* Montserrat-Regular.otf */,
+				329FAD3C22854228004CA17B /* Montserrat-ExtraBold.otf */,
+				329FAD3D22854229004CA17B /* Montserrat-SemiBold.otf */,
+			);
+			name = Fonts;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
+		32E1115821C8B63000336162 = {
+			isa = PBXGroup;
+			children = (
+				32E1116321C8B63000336162 /* HappyCamper */,
+				32FED0E62242294600BCF15D /* AppDelegate */,
+				32FED0E22242285A00BCF15D /* UI */,
+				32FED0DF2242280200BCF15D /* View Controllers */,
+				32D506F122325838006AD23B /* Subscriptions */,
+				321877C121CA10650046C778 /* Constant */,
+				3250161321CB7D8300768975 /* CellClasses */,
+				32FED0E7224229E000BCF15D /* Models */,
+				32336B3C223B8924002A1D1A /* Supporting Files */,
+				32E1116221C8B63000336162 /* Products */,
+				CD338C014F28EF8DA46D75C9 /* Pods */,
+				5E8D5A3969B25E3E06BA10FD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		32E1116221C8B63000336162 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32E1116121C8B63000336162 /* HappyCamper.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32E1116321C8B63000336162 /* HappyCamper */ = {
+			isa = PBXGroup;
+			children = (
+				3214E68C22845E2B0096F6E2 /* Images */,
+				32E38A012264BD2300265CF6 /* HappyCamper.entitlements */,
+				323B8B2121DCC5D6005E92E6 /* LiveActivityVC.swift */,
+				32B1E71821DDE33B003E0A08 /* CookingActivitiesVC.swift */,
+				3299B93D21E4649C000DD883 /* RegisterCampPaymentVC.swift */,
+				32D9D1AD21CD588B0078A701 /* SelectSubscriptionPaymentVC.swift */,
+				32D9D1C121CFFC9D0078A701 /* RecoverPasswordVC.swift */,
+				32D9D1AF21CE6A050078A701 /* PopUpLogInVC.swift */,
+				3299B94521E4A12E000DD883 /* CamperUploadDetailVC.swift */,
+				32809F1C21E86C62004A412A /* NearMeCampsVC.swift */,
+				32809F2221E8960C004A412A /* PopEnterInformationVC.swift */,
+				32809F2621E8C89E004A412A /* CampDetailVC.swift */,
+				32F8154A21F1A7E600B19377 /* CamperActivityDetailVC.swift */,
+				3287D02D21F9EFDC00DCE3CF /* SelectColorVC.swift */,
+				32FEF0F42200126F006B9C26 /* CampInformationVC.swift */,
+				32CF4067222D28CD00881ACB /* InviteAFriendVC.swift */,
+				32E1117021C8B63200336162 /* Info.plist */,
+				32E1116B21C8B63200336162 /* Assets.xcassets */,
+			);
+			path = HappyCamper;
+			sourceTree = "<group>";
+		};
+		32F166F5220424EB00529AD6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				32002FD72255003600A44E2B /* CacheManager.swift */,
+				32CA7E1D220851BE00DBA810 /* UserModel.swift */,
+				3200C1A92209595D00A6C814 /* SubCategoryModel.swift */,
+				32E56DFD2212D66D003FD4B0 /* CampModel.swift */,
+				329575582227A3FB00DE0E9C /* CampfireBannerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		32FC9B80224B581400AB8C35 /* Web Series */ = {
+			isa = PBXGroup;
+			children = (
+				32FC9B86224CA36D00AB8C35 /* SubCategory series */,
+				32FC9B83224B892800AB8C35 /* Cast Cells */,
+				32FC9B82224B891E00AB8C35 /* Detail Cells */,
+				324B8BC021CD048A0047229B /* WebSeriesVC.swift */,
+				32645BD221D1116200FB8625 /* WebSeriesVM.swift */,
+				323867F7220D80E10093A53A /* WebVideoDetailTVC.swift */,
+			);
+			path = "Web Series";
+			sourceTree = "<group>";
+		};
+		32FC9B81224B5F9800AB8C35 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3206CDC2225F763F0062EBF8 /* RecentVideosVC.swift */,
+				3215792F2202E14100FDCCCE /* ProfileVC.swift */,
+				32999C1021F056D20011B728 /* CounselorProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		32FC9B82224B891E00AB8C35 /* Detail Cells */ = {
+			isa = PBXGroup;
+			children = (
+				32645BC321D0C35900FB8625 /* EpisodesDetailsTVC.swift */,
+				32645BC721D0C5D500FB8625 /* EpisodesDetailsCVC.swift */,
+			);
+			path = "Detail Cells";
+			sourceTree = "<group>";
+		};
+		32FC9B83224B892800AB8C35 /* Cast Cells */ = {
+			isa = PBXGroup;
+			children = (
+				32645BC921D0EA6100FB8625 /* CastCVC.swift */,
+			);
+			path = "Cast Cells";
+			sourceTree = "<group>";
+		};
+		32FC9B86224CA36D00AB8C35 /* SubCategory series */ = {
+			isa = PBXGroup;
+			children = (
+				32D9D1B121CEB9760078A701 /* CastScreenVC.swift */,
+				323867F5220D7B830093A53A /* WebSeriesVideoDetailCatVM.swift */,
+				323867F3220D66C90093A53A /* WebSeriesVideoDetailCatVC.swift */,
+			);
+			path = "SubCategory series";
+			sourceTree = "<group>";
+		};
+		32FED0DF2242280200BCF15D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3291B6BF2271DE1600E851E1 /* iPhone Classes */,
+				323F240D225B21C3008357B1 /* Header Options */,
+				32FC9B81224B5F9800AB8C35 /* Profile */,
+				32FC9B80224B581400AB8C35 /* Web Series */,
+				32FED0E02242280D00BCF15D /* Home */,
+				32FEF104220071E7006B9C26 /* Extra */,
+				32FED0E32242289E00BCF15D /* Tabbar Controllers */,
+				32FED0E12242282300BCF15D /* Get Access */,
+				32018E5A2244B62C009343A7 /* Static Links */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		32FED0E02242280D00BCF15D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				32FED0E4224228D400BCF15D /* Sub Categories Details */,
+				32D9D1B521CFBB5C0078A701 /* GuestLandingPageVC.swift */,
+				32645BD021D10FBA00FB8625 /* GuestLandingVM.swift */,
+				32F166F62204251A00529AD6 /* GuestLandingModel.swift */,
+				32D9D1B721CFBC490078A701 /* GuestLandingCVC.swift */,
+				32E98AD521F874BF00C4595C /* GuestLandingBannerCVC.swift */,
+				326C704721D0A3B500527D1F /* GuestLandingTVC.swift */,
+				3291B6B9226EEE4D00E851E1 /* GuestLandingCounselorTVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		32FED0E12242282300BCF15D /* Get Access */ = {
+			isa = PBXGroup;
+			children = (
+				321877C821CA2C650046C778 /* SignUpVC.swift */,
+				32E1116621C8B63000336162 /* SignInVC.swift */,
+			);
+			path = "Get Access";
+			sourceTree = "<group>";
+		};
+		32FED0E22242285A00BCF15D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3291B6B4226D93BF00E851E1 /* iPhoneXib */,
+				32E1116821C8B63000336162 /* Main.storyboard */,
+				329FAD45228BE629004CA17B /* iPhone.storyboard */,
+				32E1116D21C8B63200336162 /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		32FED0E32242289E00BCF15D /* Tabbar Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				326B447622118E4700D2FC54 /* AboutUsVC.swift */,
+				32999C0721F040400011B728 /* CamperStaffVC.swift */,
+				32FEF1002200326D006B9C26 /* MemberBenefitsVC.swift */,
+			);
+			path = "Tabbar Controllers";
+			sourceTree = "<group>";
+		};
+		32FED0E4224228D400BCF15D /* Sub Categories Details */ = {
+			isa = PBXGroup;
+			children = (
+				32FED0E52242291500BCF15D /* View All Categories */,
+				3222897B2201795300D003A2 /* SubCategoryDetailVC.swift */,
+				3222897D2201798900D003A2 /* SubCategoryDetailTVC.swift */,
+				3222897F22017C1800D003A2 /* SubCategoryDetailVM.swift */,
+			);
+			path = "Sub Categories Details";
+			sourceTree = "<group>";
+		};
+		32FED0E52242291500BCF15D /* View All Categories */ = {
+			isa = PBXGroup;
+			children = (
+				32BEC484225496620023000F /* SubCategoryViewAll */,
+				32BEC47F22533A5D0023000F /* Open Video Popup */,
+				32FEF10522008434006B9C26 /* SubCategoriesVideoVC.swift */,
+				32FEF107220084B2006B9C26 /* SubCategoryVideosTVC.swift */,
+				32FEF10922008557006B9C26 /* SubCategoriesVideoVM.swift */,
+			);
+			path = "View All Categories";
+			sourceTree = "<group>";
+		};
+		32FED0E62242294600BCF15D /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				32E1116421C8B63000336162 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		32FED0E7224229E000BCF15D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				329B6213227C906400B9DF0C /* UIImageViewAligned.swift */,
+				32FED0E822422AE400BCF15D /* HCServiceAPI */,
+				32645BCF21D10F7E00FB8625 /* ViewModel */,
+				32F166F5220424EB00529AD6 /* Model */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		32FED0E822422AE400BCF15D /* HCServiceAPI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HCServiceAPI;
+			sourceTree = "<group>";
+		};
+		32FEF104220071E7006B9C26 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				32645BCD21D10DA500FB8625 /* ChangePasswordVC.swift */,
+				32E56DF92212A6A1003FD4B0 /* MyTransactionVC.swift */,
+				32A229E5221445F7005B797E /* FavouritesVideoVC.swift */,
+				32CFC30D2215513100D65DB9 /* FavouritesCampsVC.swift */,
+				321D1BC422291BBF006C849B /* CoinCanteenVC.swift */,
+				321D1BC622292BCB006C849B /* CoinCanteenVM.swift */,
+				321D1BC822293DB6006C849B /* CoinCanteenCVC.swift */,
+				321D1BCA222954C9006C849B /* CheckOutVC.swift */,
+				32CF4069222D4EBB00881ACB /* JoinOurTeamVC.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
+		5E8D5A3969B25E3E06BA10FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32E38A022264C55F00265CF6 /* CloudKit.framework */,
+				03CAEC155B6F4F185ED9DB5D /* Pods_HappyCamper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD338C014F28EF8DA46D75C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25BB155BD17A99417F918DF9 /* Pods-HappyCamper.debug.xcconfig */,
+				930DF6265469B1FCF23E234C /* Pods-HappyCamper.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32E1116021C8B63000336162 /* HappyCamper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32E1117321C8B63200336162 /* Build configuration list for PBXNativeTarget "HappyCamper" */;
+			buildPhases = (
+				23BDD16D7C2CFE6E3DE9732E /* [CP] Check Pods Manifest.lock */,
+				32E1115D21C8B63000336162 /* Sources */,
+				32E1115E21C8B63000336162 /* Frameworks */,
+				32E1115F21C8B63000336162 /* Resources */,
+				4BDD13FF95A982D210F6F408 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HappyCamper;
+			productName = HappyCamper;
+			productReference = 32E1116121C8B63000336162 /* HappyCamper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		32E1115921C8B63000336162 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = wegile;
+				TargetAttributes = {
+					32E1116021C8B63000336162 = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 0;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 32E1115C21C8B63000336162 /* Build configuration list for PBXProject "HappyCamper" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 32E1115821C8B63000336162;
+			productRefGroup = 32E1116221C8B63000336162 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32E1116021C8B63000336162 /* HappyCamper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32E1115F21C8B63000336162 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				321E19622265F5D100B89333 /* check.jpg in Resources */,
+				32E1116F21C8B63200336162 /* LaunchScreen.storyboard in Resources */,
+				329FAD42228542E8004CA17B /* Montserrat-Bold.otf in Resources */,
+				327376E0225CC34800018DB1 /* TabCollectionCell.xib in Resources */,
+				32645BC221D0B6C400FB8625 /* AdvertisementTVC.xib in Resources */,
+				329B6211227C42C000B9DF0C /* UploadFileImage.png in Resources */,
+				32336B3F223B8962002A1D1A /* TimeCamp.gif in Resources */,
+				32E1116C21C8B63200336162 /* Assets.xcassets in Resources */,
+				329FAD3E22854229004CA17B /* Montserrat-ExtraBold.otf in Resources */,
+				327376DB225CC34800018DB1 /* TabView.xib in Resources */,
+				329FAD3F22854229004CA17B /* Montserrat-SemiBold.otf in Resources */,
+				329B6210227C42C000B9DF0C /* icon_HomeScreen.png in Resources */,
+				329FAD43228542E8004CA17B /* Montserrat-Black.otf in Resources */,
+				32A010E722815E1100756530 /* Best_ValueArrow.png in Resources */,
+				321E19632265F5D100B89333 /* Uncheck.jpg in Resources */,
+				32A010E522815C6400756530 /* Signup list.png in Resources */,
+				329B61FA227C1B6400B9DF0C /* 1@3x.png in Resources */,
+				3200DC5E223F64AA00B583B6 /* HCHeaderView.xib in Resources */,
+				32E1116A21C8B63000336162 /* Main.storyboard in Resources */,
+				329FAD46228BE629004CA17B /* iPhone.storyboard in Resources */,
+				3291B6B8226D93C000E851E1 /* iPhoneSocialTabsXib.xib in Resources */,
+				3214E68B22843F4A0096F6E2 /* iPhoneSplash@3x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23BDD16D7C2CFE6E3DE9732E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HappyCamper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BDD13FF95A982D210F6F408 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HappyCamper/Pods-HappyCamper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HappyCamper/Pods-HappyCamper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32E1115D21C8B63000336162 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3287D02E21F9EFDC00DCE3CF /* SelectColorVC.swift in Sources */,
+				32CA7E1A2207FD6300DBA810 /* SelectColorVM.swift in Sources */,
+				32D9D1C221CFFC9D0078A701 /* RecoverPasswordVC.swift in Sources */,
+				32CA7E162204ACCE00DBA810 /* TabbarViewController.swift in Sources */,
+				327376E9225CC54100018DB1 /* FeaturedNewsVC.swift in Sources */,
+				3250161721CBAB5300768975 /* SelectSubscriptionTVC.swift in Sources */,
+				32FEF10622008434006B9C26 /* SubCategoriesVideoVC.swift in Sources */,
+				32002FD82255003600A44E2B /* CacheManager.swift in Sources */,
+				32809F1D21E86C62004A412A /* NearMeCampsVC.swift in Sources */,
+				32E56DFA2212A6A1003FD4B0 /* MyTransactionVC.swift in Sources */,
+				32E1116721C8B63000336162 /* SignInVC.swift in Sources */,
+				3291B6C92271DE1600E851E1 /* HCOpenVideoIphoneVC.swift in Sources */,
+				3291B6BA226EEE4D00E851E1 /* GuestLandingCounselorTVC.swift in Sources */,
+				32E56DFE2212D66D003FD4B0 /* CampModel.swift in Sources */,
+				326C704821D0A3B500527D1F /* GuestLandingTVC.swift in Sources */,
+				32907C2621D27B6D008AC970 /* Proxy.swift in Sources */,
+				3291B6CC2271DE1600E851E1 /* SideMenuTransition.swift in Sources */,
+				324B8BC121CD048A0047229B /* WebSeriesVC.swift in Sources */,
+				32645BC821D0C5D500FB8625 /* EpisodesDetailsCVC.swift in Sources */,
+				323867F4220D66C90093A53A /* WebSeriesVideoDetailCatVC.swift in Sources */,
+				321579302202E14100FDCCCE /* ProfileVC.swift in Sources */,
+				32C94CEF2216F0A70004BB7B /* SubCategoryViewAllDetailVC.swift in Sources */,
+				32F8154F21F1AAEC00B19377 /* CamperActivityDetailVM.swift in Sources */,
+				32CF406A222D4EBB00881ACB /* JoinOurTeamVC.swift in Sources */,
+				32E1116521C8B63000336162 /* AppDelegate.swift in Sources */,
+				32810B9621CCBA3D00C36C83 /* CampStoreCVC.swift in Sources */,
+				32D9D1B621CFBB5C0078A701 /* GuestLandingPageVC.swift in Sources */,
+				32D9D1BC21CFE3CB0078A701 /* MenuPopUpTVC.swift in Sources */,
+				32A229E6221445F7005B797E /* FavouritesVideoVC.swift in Sources */,
+				32D9D1B221CEB9760078A701 /* CastScreenVC.swift in Sources */,
+				32999C0821F040400011B728 /* CamperStaffVC.swift in Sources */,
+				32F8154B21F1A7E600B19377 /* CamperActivityDetailVC.swift in Sources */,
+				32645BCA21D0EA6100FB8625 /* CastCVC.swift in Sources */,
+				3206CDC0225F61EC0062EBF8 /* UploadFilePopup.swift in Sources */,
+				32D506F822325868006AD23B /* Session.swift in Sources */,
+				32B1E71721DDE191003E0A08 /* CookingActivitieCVC.swift in Sources */,
+				32809F2121E86EB2004A412A /* NearMeCampVM.swift in Sources */,
+				3299B94421E46509000DD883 /* RegisterCampPaymentVM.swift in Sources */,
+				32645BCE21D10DA500FB8625 /* ChangePasswordVC.swift in Sources */,
+				32D9D1AC21CD586A0078A701 /* SelectSubscriptionPaymentCVC.swift in Sources */,
+				327376DE225CC34800018DB1 /* TTMultipleTabVC.swift in Sources */,
+				3206CDC3225F763F0062EBF8 /* RecentVideosVC.swift in Sources */,
+				327376E7225CC53100018DB1 /* NewUpdatedNewsVC.swift in Sources */,
+				32D9D1B021CE6A050078A701 /* PopUpLogInVC.swift in Sources */,
+				32907C2421D237CB008AC970 /* SignUpVM.swift in Sources */,
+				327376E2225CC34800018DB1 /* TabPageOption.swift in Sources */,
+				32C94CF32216F8160004BB7B /* SubCategoryViewAllDetailCVC.swift in Sources */,
+				32BEC48122533A7A0023000F /* HCOpenVideoVC.swift in Sources */,
+				321D1BCB222954C9006C849B /* CheckOutVC.swift in Sources */,
+				3291B6CD2271DE1600E851E1 /* UITableViewVibrantCell.swift in Sources */,
+				321D1BC922293DB6006C849B /* CoinCanteenCVC.swift in Sources */,
+				323F2412225B842A008357B1 /* CampfireAdCell.swift in Sources */,
+				327376DD225CC34800018DB1 /* TabCollectionCell.swift in Sources */,
+				3299B94A21E4A783000DD883 /* CamperUploadDetailVM.swift in Sources */,
+				32D506F722325868006AD23B /* Subscription.swift in Sources */,
+				32CF4068222D28CD00881ACB /* InviteAFriendVC.swift in Sources */,
+				32D506FB22325868006AD23B /* SubscriptionService.swift in Sources */,
+				32645BCC21D0F95100FB8625 /* FooterCRC.swift in Sources */,
+				323B8B2021DCC566005E92E6 /* ActivityTVC.swift in Sources */,
+				3291B6CA2271DE1600E851E1 /* UISideMenuNavigationController.swift in Sources */,
+				32E56DFC2212B334003FD4B0 /* MyTransactionVM.swift in Sources */,
+				32018E5C2244B664009343A7 /* HCStaticLinkVC.swift in Sources */,
+				32810B9121CCAF9900C36C83 /* Constants.swift in Sources */,
+				3299B94621E4A12E000DD883 /* CamperUploadDetailVC.swift in Sources */,
+				32B1E71921DDE33B003E0A08 /* CookingActivitiesVC.swift in Sources */,
+				32907C2221D23768008AC970 /* SignInVM.swift in Sources */,
+				32F5BE7D21D4D15E00F4960D /* JoinCampSubscriptionCVC.swift in Sources */,
+				323B8B2421DCCD3A005E92E6 /* LiveActivityVM.swift in Sources */,
+				3222897E2201798900D003A2 /* SubCategoryDetailTVC.swift in Sources */,
+				32810B8E21CCAF9900C36C83 /* SetCornerImageView.swift in Sources */,
+				32999C1121F056D20011B728 /* CounselorProfileVC.swift in Sources */,
+				32F5096921DCEF59002D9F9A /* CampActivityCVC.swift in Sources */,
+				3291B6CB2271DE1600E851E1 /* SideMenuManager.swift in Sources */,
+				32FEF0F52200126F006B9C26 /* CampInformationVC.swift in Sources */,
+				32B1E71D21DDE80A003E0A08 /* CookingActivitiesTVC.swift in Sources */,
+				32CA7E182205FFC200DBA810 /* ProfileVM.swift in Sources */,
+				3250161521CB7DA500768975 /* SelectSubscriptionCVC.swift in Sources */,
+				32810B8B21CCAF9900C36C83 /* SetCornerButton.swift in Sources */,
+				32CA7E1E220851BE00DBA810 /* UserModel.swift in Sources */,
+				32D3254521D39C2500823255 /* SelectSubscriptionPaymentVM.swift in Sources */,
+				3206CDC52260BAE60062EBF8 /* SubscriptionDetailVIew.swift in Sources */,
+				3291B6BC226F0CA700E851E1 /* CounselorsCell.swift in Sources */,
+				32809F2321E8960C004A412A /* PopEnterInformationVC.swift in Sources */,
+				32D506FA22325868006AD23B /* SelfieService.swift in Sources */,
+				329C683621D3573C0048B096 /* MenuDrawerController.swift in Sources */,
+				323867F8220D80E10093A53A /* WebVideoDetailTVC.swift in Sources */,
+				32645BD321D1116200FB8625 /* WebSeriesVM.swift in Sources */,
+				32F8154D21F1A98900B19377 /* CamperActivityTodayCampTVC.swift in Sources */,
+				3299B93E21E4649C000DD883 /* RegisterCampPaymentVC.swift in Sources */,
+				327376E5225CC51100018DB1 /* HotNewsVC.swift in Sources */,
+				327376DF225CC34800018DB1 /* TabView.swift in Sources */,
+				32F166F4220410BE00529AD6 /* WebServiceProxy.swift in Sources */,
+				329575592227A3FB00DE0E9C /* CampfireBannerModel.swift in Sources */,
+				32D9D1AE21CD588B0078A701 /* SelectSubscriptionPaymentVC.swift in Sources */,
+				32BEC4832253A87F0023000F /* AdCoinTVC.swift in Sources */,
+				32810B9221CCAF9900C36C83 /* Extensions.swift in Sources */,
+				32E98AD621F874BF00C4595C /* GuestLandingBannerCVC.swift in Sources */,
+				32FC9B85224C97D300AB8C35 /* ShadowView.swift in Sources */,
+				323B8B2221DCC5D6005E92E6 /* LiveActivityVC.swift in Sources */,
+				32D506F922325868006AD23B /* PaidSubscription.swift in Sources */,
+				321877C921CA2C650046C778 /* SignUpVC.swift in Sources */,
+				321D1BC722292BCB006C849B /* CoinCanteenVM.swift in Sources */,
+				32999C0A21F041F00011B728 /* CamperStaffVM.swift in Sources */,
+				32FEF108220084B2006B9C26 /* SubCategoryVideosTVC.swift in Sources */,
+				3293605221EC61BF0062B4A7 /* CampDetailVM.swift in Sources */,
+				32810B9821CCD4D400C36C83 /* CampStoreTVC.swift in Sources */,
+				323867F6220D7B830093A53A /* WebSeriesVideoDetailCatVM.swift in Sources */,
+				32F166F72204251A00529AD6 /* GuestLandingModel.swift in Sources */,
+				321E19652267296B00B89333 /* ContestVC.swift in Sources */,
+				3204C7882223D18600D173FC /* AdvertisementVC.swift in Sources */,
+				3291B6CE2271DE1600E851E1 /* LeftMenuViewController.swift in Sources */,
+				3200C1AA2209595D00A6C814 /* SubCategoryModel.swift in Sources */,
+				32B1E71B21DDE6CA003E0A08 /* CookingActivitiesVM.swift in Sources */,
+				32FEF10A22008557006B9C26 /* SubCategoriesVideoVM.swift in Sources */,
+				32809F1F21E86E81004A412A /* NearMeCampTVC.swift in Sources */,
+				32809F2721E8C89E004A412A /* CampDetailVC.swift in Sources */,
+				32810B8F21CCAF9900C36C83 /* SetCornerView.swift in Sources */,
+				32D9D1B821CFBC490078A701 /* GuestLandingCVC.swift in Sources */,
+				32A229E822144650005B797E /* FavouritesVIdeoVM.swift in Sources */,
+				32CFC30E2215513100D65DB9 /* FavouritesCampsVC.swift in Sources */,
+				32999C1621F06C760011B728 /* CounselorProfileVM.swift in Sources */,
+				32645BD121D10FBA00FB8625 /* GuestLandingVM.swift in Sources */,
+				32F5096721DCECDF002D9F9A /* CampActivityTVC.swift in Sources */,
+				326B447722118E4700D2FC54 /* AboutUsVC.swift in Sources */,
+				32999C0D21F045C40011B728 /* CampStaffTVC.swift in Sources */,
+				323B8B1E21DCC46F005E92E6 /* ActivityHeaderCVC.swift in Sources */,
+				329B6214227C906500B9DF0C /* UIImageViewAligned.swift in Sources */,
+				32FEF1012200326D006B9C26 /* MemberBenefitsVC.swift in Sources */,
+				323F240F225B21EE008357B1 /* CampfireVC.swift in Sources */,
+				3200DC5C223F649100B583B6 /* HCHeaderView.swift in Sources */,
+				3299B94821E4A156000DD883 /* CamperUploadDetailTVC.swift in Sources */,
+				3222898022017C1800D003A2 /* SubCategoryDetailVM.swift in Sources */,
+				3222897C2201795300D003A2 /* SubCategoryDetailVC.swift in Sources */,
+				32C593B321FB127C00B0EF1A /* CamperCommunityTVC.swift in Sources */,
+				3291B6B7226D93C000E851E1 /* iPhoneSocialTabs.swift in Sources */,
+				321D1BC522291BBF006C849B /* CoinCanteenVC.swift in Sources */,
+				327376E1225CC34800018DB1 /* TabPageViewController.swift in Sources */,
+				32645BC421D0C35900FB8625 /* EpisodesDetailsTVC.swift in Sources */,
+				32645BC121D0B6C400FB8625 /* AdvertisementTVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		32E1116821C8B63000336162 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32E1116921C8B63000336162 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		32E1116D21C8B63200336162 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32E1116E21C8B63200336162 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		32E1117121C8B63200336162 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		32E1117221C8B63200336162 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		32E1117421C8B63200336162 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25BB155BD17A99417F918DF9 /* Pods-HappyCamper.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HappyCamper/HappyCamper.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4QAA232DUV;
+				INFOPLIST_FILE = HappyCamper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.compax.happycamper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Compax_Dev_2019_04_26;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		32E1117521C8B63200336162 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 930DF6265469B1FCF23E234C /* Pods-HappyCamper.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HappyCamper/HappyCamper.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 4QAA232DUV;
+				INFOPLIST_FILE = HappyCamper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.compax.happycamper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Prod_Compax_2019_04_12;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32E1115C21C8B63000336162 /* Build configuration list for PBXProject "HappyCamper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32E1117121C8B63200336162 /* Debug */,
+				32E1117221C8B63200336162 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32E1117321C8B63200336162 /* Build configuration list for PBXNativeTarget "HappyCamper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32E1117421C8B63200336162 /* Debug */,
+				32E1117521C8B63200336162 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 32E1115921C8B63000336162 /* Project object */;
+}
