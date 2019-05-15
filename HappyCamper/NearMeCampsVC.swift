@@ -85,12 +85,23 @@ class NearMeCampsVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopH
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UIDevice.current.userInterfaceIdiom != .pad {
-            Proxy.shared.showNavigationOnTopMenu(controller: self)
-        }
-        
+        //varinder15
         self.navigationController?.navigationBar.topItem?.title  = "CAMP NEAR ME"
-
+        if let navController = self.navigationController, navController.viewControllers.count >= 2 {
+            let viewController = navController.viewControllers[navController.viewControllers.count - 2]
+            if viewController.isKind(of: MemberBenefitsVC.self) {
+                self.title = "CAMP NEAR ME"
+            } else {
+                if UIDevice.current.userInterfaceIdiom != .pad {
+                    Proxy.shared.showNavigationOnTopMenu(controller: self)
+                }
+            }
+        } else {
+            if UIDevice.current.userInterfaceIdiom != .pad {
+                Proxy.shared.showNavigationOnTopMenu(controller: self)
+            }
+            
+        }
         
         //varinder10
         if UIDevice.current.userInterfaceIdiom != .pad {

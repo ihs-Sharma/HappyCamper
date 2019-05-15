@@ -130,7 +130,6 @@ extension NearMeCampsVC : UITableViewDataSource, UITableViewDelegate , UICollect
                 cell.imgVwBanner.sd_setImage(with: URL.init(string: "\(Apis.KCampTestUrl)\(CampListModelObj.arr_campBannerImg[0].stringValue)"),placeholderImage: nil, completed: nil)
             }
 
-            /*
              if CampListModelObj.campShortDesc != "Blank" {
              cell.lblDescription.isHidden = false
              let string =  CampListModelObj.campShortDesc
@@ -139,7 +138,6 @@ extension NearMeCampsVC : UITableViewDataSource, UITableViewDelegate , UICollect
              cell.lblDescription.text = ""
              cell.lblDescription.isHidden = true
              }
-             */
             
             cell.btnLearnMore.tag = indexPath.row
             cell.btnLearnMore.addTarget(self, action: #selector(btnLearnMoreAction), for: .touchUpInside)

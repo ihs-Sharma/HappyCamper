@@ -235,7 +235,7 @@ class AboutUsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate,Select
             urlStr = "\(Apis.KAboutUsLink)"
             if Proxy.shared.authNil() != "" {
                 urlStr=""
-                urlStr = "\(Apis.KAboutUsLink)" + ""
+                urlStr = "\(Apis.KAboutUsLink)" + "/abc"
             }
             url = URL (string: Apis.KSiteUrl + "\(urlStr)")
         }
@@ -250,8 +250,6 @@ class AboutUsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate,Select
         NotificationCenter.default.addObserver(self, selector: #selector(observeTapOnLinks), name: NSNotification.Name("campfire_url"), object: nil)
         
     }
-    
-    
     
     // Notify on click on links
     @objc func observeTapOnLinks(_ notification: Notification) {

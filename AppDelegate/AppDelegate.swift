@@ -145,6 +145,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 obj = ["type":"web-series"]
             }
             
+            if str.contains("360") {
+                obj = ["type":"360"]
+            }
+            
             if str.contains("campfire") {
                 obj = ["type":"campfire"]
             }

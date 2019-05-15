@@ -44,7 +44,7 @@ class CampListModel {
         campTitle = dict["camp_title"] as? String ?? ""
         campShortDesc = dict["short_description"] as? String ?? ""
         arr_campBannerImg = json["camp_banner_link"].arrayValue
-        campAddress = dict["address"] as? String ?? ""
+        campAddress = dict["location"] as? String ?? ""
     }
 }
 

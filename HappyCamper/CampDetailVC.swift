@@ -61,7 +61,9 @@ class CampDetailVC: UIViewController, SelectMenuOption ,SelectAviatorImage,TopHe
     @IBOutlet weak var tbl_HeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var info_BottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var coll_BottomConstraint: NSLayoutConstraint!
-
+    //varinder15
+    @IBOutlet weak var view_TopConstraints: NSLayoutConstraint!
+    
     //MARK:--> VARIABLES
     var CampDetailVMObj = CampDetailVM()
     var viewController : MenuDrawerController?
@@ -124,46 +126,56 @@ class CampDetailVC: UIViewController, SelectMenuOption ,SelectAviatorImage,TopHe
             targetVw.addSubview(viewController!.view)
             viewController?.tblVw.delegate = viewController
             viewController?.tblVw.dataSource = viewController
-        
             
-            CampDetailVMObj.postCampDetailApi {
-                self.updateConstraints()
-                if self.CampDetailVMObj.campLike == true {
-                    self.imgVwLike.image =  UIImage(named: "like")
-                } else {
-                    self.imgVwLike.image = UIImage(named: "like (2)")
-                }
-                
-                if self.CampDetailVMObj.CampModelAry[0].campAddress != "" {
-                    self.vwAddress.isHidden = false
-                    self.lblAddress.text!   = self.CampDetailVMObj.CampModelAry[0].campLocation
-                } else {
-                    self.vwAddress.isHidden = true
-                }
-                
-                if self.CampDetailVMObj.CampModelAry[0].campLongDescription != "Blank" {
-                    self.lblDescriptions.isHidden = false
-                    self.lblDescriptions.text! = self.CampDetailVMObj.CampModelAry[0].campLongDescription.htmlToString
-                } else {
-                    self.lblDescriptions.isHidden = true
-                }
-                
-                self.lblTitleHeader.text! = self.CampDetailVMObj.CampModelAry[0].campTitle
-                self.lblTitle.text!       = self.CampDetailVMObj.CampModelAry[0].campTitle
-                
-                self.colVw.reloadData()
-                
-                self.tblviewMain.reloadData()
-                
-            }
-            
-            self.tblviewMain.addObserver(self, forKeyPath: "contentSize", options: [], context: nil)
+            self.updateConstraints()
             
         }else{
             //Load Data
-            self.reloadData()
+            //  self.reloadData()
         }
         
+        //varinder15
+        
+        CampDetailVMObj.postCampDetailApi {
+            
+            if self.CampDetailVMObj.campLike == true {
+                self.imgVwLike.image =  UIImage(named: "like")
+            } else {
+                self.imgVwLike.image = UIImage(named: "like (2)")
+            }
+            
+            if self.CampDetailVMObj.CampModelAry[0].campAddress != "" {
+                self.vwAddress.isHidden = false
+                self.lblAddress.text!   = self.CampDetailVMObj.CampModelAry[0].campLocation
+            } else {
+                self.vwAddress.isHidden = true
+            }
+            
+            if self.CampDetailVMObj.CampModelAry[0].campLongDescription != "Blank" {
+                self.lblDescriptions.isHidden = false
+                self.lblDescriptions.text! = self.CampDetailVMObj.CampModelAry[0].campLongDescription.htmlToString
+            } else {
+                self.lblDescriptions.isHidden = true
+                self.view_TopConstraints.constant = -30
+            }
+            
+            if self.lblDescriptions.text!.isEmpty ||  self.lblDescriptions.text! == "\n" {
+                self.view_TopConstraints.constant = -40
+            }
+            //varinder15
+            
+            self.lblTitleHeader.text! = self.CampDetailVMObj.CampModelAry[0].campTitle
+            //  self.lblTitle.text!       = self.CampDetailVMObj.CampModelAry[0].campTitle
+            self.title = self.CampDetailVMObj.CampModelAry[0].campTitle
+            self.colVw.reloadData()
+            
+            self.tblviewMain.reloadData()
+            
+        }
+        //  if UIDevice.current.userInterfaceIdiom == .pad {
+        
+        self.tblviewMain.addObserver(self, forKeyPath: "contentSize", options: [], context: nil)
+        //  }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -315,12 +327,10 @@ class CampDetailVC: UIViewController, SelectMenuOption ,SelectAviatorImage,TopHe
         Proxy.shared.popToBackVC(isAnimate: true, currentViewController: self)
     }
     
-    @IBAction func btnRequestInfo(_ sender: Any) {
-        // Proxy.shared.pushToNextVC(identifier: "CampInformationVC", isAnimate: true, currentViewController: self)
-        
+    @IBAction func btnRequestInfo(_ sender: Any) {        
         if CampDetailVMObj.campId != "" || CampDetailVMObj.campId.isEmpty == false{
             
-            let nav = StoryboardChnage.mainStoryboard.instantiateViewController(withIdentifier: "PopEnterInformationVC") as! PopEnterInformationVC
+            let nav = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "PopEnterInformationVC") as! PopEnterInformationVC
             nav.userCampId  = CampDetailVMObj.campId
             self.present(nav, animated: true, completion: nil)
         }

@@ -447,7 +447,7 @@ extension CampfireVC {
         self.addChild(playerController)
         playerController.didMove(toParent: self)
         tour_VideoView.addSubview(playerController.view)
-        player_Tour.play()
+//        player_Tour.play()
     }
 }
 
