@@ -24,6 +24,8 @@ class SubCategoriesVideoVC: UIViewController , SelectMenuOption ,SelectAviatorIm
     @IBOutlet weak var view_GradiantLeft: UIView!
     @IBOutlet weak var lbl_BannerTitle: UILabel!
     @IBOutlet weak var lbl_BannerDescp: UILabel!
+    @IBOutlet weak var videoViewHeight_Constraints: NSLayoutConstraint!
+    @IBOutlet weak var headerView: UIView!
     
     @IBOutlet weak var imgVwAviator: SetCornerImageView!
     @IBOutlet weak var menuVw: SetCornerImageView!
@@ -83,6 +85,20 @@ class SubCategoriesVideoVC: UIViewController , SelectMenuOption ,SelectAviatorIm
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //varinder16
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let isIpadPro:Bool = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) > 1024
+            
+            if isIpadPro != true {
+                videoViewHeight_Constraints.constant = 500//650
+                // headerView
+                
+                var newFrame: CGRect = headerView.frame
+                newFrame.size.height = 700//848
+                headerView.frame = newFrame
+            }
+        }
         
         SelectedViewAllVideoObj = self
         tblVw.tableFooterView = UIView()

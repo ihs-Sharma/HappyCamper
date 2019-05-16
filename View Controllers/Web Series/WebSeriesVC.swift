@@ -24,6 +24,8 @@ class WebSeriesVC: UIViewController, UITableViewDelegate, SelectMenuOption, Sele
     @IBOutlet weak var targetVw: UIView!
     @IBOutlet weak var view_Gradiant: UIView!
     @IBOutlet weak var view_GradiantLeft: UIView!
+    @IBOutlet weak var videoViewHeight_Constraints: NSLayoutConstraint!
+    @IBOutlet weak var headerView: UIView!
     
     //MARK:--> VARIABLES
     var WebSeriesVMObj = WebSeriesVM()
@@ -84,6 +86,21 @@ class WebSeriesVC: UIViewController, UITableViewDelegate, SelectMenuOption, Sele
     //MARK:--> VIEW CONTROLLER FUNCTIONS
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //varinder16
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            
+            let isIpadPro:Bool = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) > 1024
+            
+            if isIpadPro != true {
+                videoViewHeight_Constraints.constant = 500//615
+                // headerView
+                
+                var newFrame: CGRect = headerView.frame
+                newFrame.size.height = 510//623
+                headerView.frame = newFrame
+            }
+        }
         
         //Load Data
         reloadData()

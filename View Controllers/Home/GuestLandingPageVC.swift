@@ -35,6 +35,9 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
     @IBOutlet weak var btnGetAllAccess: UIButton!
     @IBOutlet weak var btn_Mute: UIButton!
     
+    @IBOutlet weak var videoViewHeight_Constraints: NSLayoutConstraint!
+    @IBOutlet weak var headerView: UIView!
+    
     //PLAYER TASK
     var player : AVPlayer?
     //    var videoLayer : AVPlayerLayer?
@@ -93,6 +96,20 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
     //MARK:--> VIEW CONTROLLER LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //varinder16
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let isIpadPro:Bool = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) > 1024
+            
+            if isIpadPro != true {
+                videoViewHeight_Constraints.constant = 500//720
+                // headerView
+                
+                var newFrame: CGRect = headerView.frame
+                newFrame.size.height = 820//1020
+                headerView.frame = newFrame
+            }
+        }
         
         tblVwMain.separatorStyle = .none
         let auth = Proxy.shared.authNil()

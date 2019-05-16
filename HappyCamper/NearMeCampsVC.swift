@@ -24,6 +24,8 @@ class NearMeCampsVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopH
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var imgVwAviator: SetCornerImageView!
     @IBOutlet weak var btn_Menu: UIButton!
+    @IBOutlet weak var img_Back: UIImageView!
+    @IBOutlet weak var btnBack_WidthConstraint: NSLayoutConstraint!
 
     //MARK:--> VARIABLES
     var NearMeCampVMObj = NearMeCampVM()
@@ -32,7 +34,7 @@ class NearMeCampsVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopH
     
     var Isscrollpage = false
     var page = 1
-    
+    var isBackEnabled = false
     
     @IBOutlet weak var colVw: UICollectionView!
     
@@ -109,6 +111,11 @@ class NearMeCampsVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopH
                 leftMenuController.delegate = self;
             }
             
+        } else {
+            if isBackEnabled == false {
+                self.img_Back.isHidden=true
+                self.btnBack_WidthConstraint.constant=0
+            }
         }
         
         tblVw.tableFooterView = UIView()
@@ -154,6 +161,10 @@ class NearMeCampsVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopH
     
     @objc func btnMenuAction(){
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+    }
+    
+    @IBAction func btnBackAction(_ sender: Any) {
+        Proxy.shared.popToBackVC(isAnimate: true, currentViewController: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

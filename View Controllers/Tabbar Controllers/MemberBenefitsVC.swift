@@ -185,7 +185,17 @@ class MemberBenefitsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate
             
             let type = object["type"] as! String
             
-            if type == "ipad-signup" { }
+            if type == "community" {}
+            
+            if type == "ipad-signup" {
+                Proxy.shared.pushToNextVC(identifier: "SignUpVC", isAnimate: true, currentViewController: self)
+            }
+            
+            if type == "360" {
+                let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
+                vc.str_URL = Apis.K360Camp
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             
             if type == "web-series" {
                 Proxy.shared.pushToNextVC(identifier: "WebSeriesVC", isAnimate: true, currentViewController: self)
@@ -195,7 +205,12 @@ class MemberBenefitsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate
                 Proxy.shared.pushToNextVC(identifier: "CampfireVC", isAnimate: true, currentViewController: self)
             }
             
-            if type == "nearbycamp" { }
+            if type == "nearbycamp" {
+//                Proxy.shared.pushToNextVC(identifier: "NearMeCampsVC", isAnimate: true, currentViewController: self)
+                let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "NearMeCampsVC") as! NearMeCampsVC
+                vc.isBackEnabled = true
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             
             if type == "home" {
                 Proxy.shared.rootWithoutDrawer("TabbarViewController")

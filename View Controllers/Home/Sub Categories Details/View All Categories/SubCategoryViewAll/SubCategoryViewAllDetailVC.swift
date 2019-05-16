@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SwiftyJSON
+import AVKit
+import AVFoundation
 
 class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, SelectMenuOption, SelectAviatorImage,TopHeaderViewDelegate,UICollectionViewDelegateFlowLayout {
     
@@ -20,6 +23,18 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var imgVwAviator: SetCornerImageView!
     @IBOutlet weak var menuVw: UIView!
     @IBOutlet weak var txtFldSearch: UITextField!
+    
+    @IBOutlet weak var lbl_BannerTitle: UILabel!
+    @IBOutlet weak var videoVw: UIView!
+    @IBOutlet weak var view_Gradiant: UIView!
+    @IBOutlet weak var view_GradiantLeft: UIView!
+    @IBOutlet weak var img_Thumb: UIImageView!
+    
+    //PLAYER TASK
+    var player : AVPlayer?
+    var playerController  : AVPlayerViewController?
+    var img_Thumbnail = String()
+
     //MARK:--> VARIABLES
     var userCatUrl = String()
     var currentPage = 1
@@ -94,7 +109,24 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
     
     func reloadData() {
         VideoDetailModelAry.removeAll()
-        getVideoDetailApi(searchString: "")
+        self.getVideoDetailApi(searchString: "") { (banner_Data) in
+            if banner_Data.count > 0 {
+                
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    self.lbl_BannerTitle.text! = banner_Data["category_name"]!.stringValue
+                
+                    let thumbnail:URL!
+                    if self.img_Thumbnail != "" {
+                        thumbnail = URL.init(string: "\(Apis.KVideosThumbURL)\(self.img_Thumbnail)")
+                    } else {
+                        thumbnail = URL.init(string: "https://www.happycamperlive.com/assets/images/about-thumbnail.png")
+                    }
+                DispatchQueue.main.async {
+                    self.videoPlayerPlay(Url: banner_Data["banner_content"]!.stringValue,thumbURL: thumbnail)
+                }
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,6 +143,44 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
         colVw.dataSource = self
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !KAppDelegate.isGradiantShownForSubEpisodes {
+            let gradientLayer:CAGradientLayer = CAGradientLayer()
+            gradientLayer.frame.size = view_Gradiant.frame.size
+            gradientLayer.colors =
+                [UIColor.white.withAlphaComponent(0).cgColor,UIColor.white.withAlphaComponent(1).cgColor]
+            //        Use diffrent colors
+            view_Gradiant.layer.sublayers=nil
+            view_Gradiant.layer.addSublayer(gradientLayer)
+            
+            let gradientLayer1:CAGradientLayer = CAGradientLayer()
+            gradientLayer1.frame.size = view_GradiantLeft.frame.size
+            gradientLayer1.startPoint = CGPoint(x: 0.0, y: 0.5) //x = left to right
+            gradientLayer1.endPoint = CGPoint(x: 1.0, y: 0.5) // x = right to left
+            gradientLayer1.colors =
+                [UIColor.white.withAlphaComponent(1).cgColor,UIColor.white.withAlphaComponent(0).cgColor]
+            //        Use diffrent colors
+            view_GradiantLeft.layer.sublayers=nil
+            view_GradiantLeft.layer.addSublayer(gradientLayer1)
+        
+            KAppDelegate.isGradiantShownForSubEpisodes=true
+        } else {
+            if self.player?.timeControlStatus != .playing {
+                if videoVw != nil {
+                    self.player?.play()
+                }
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.img_Thumb.isHidden=false
+    }
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        KAppDelegate.isGradiantShownForSubEpisodes=false
+}
     
     @IBAction func btnBackAction(_ sender: Any) {
         Proxy.shared
@@ -135,7 +205,10 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
     
     @IBAction func btnSubmitAction(_ sender: Any) {
         VideoDetailModelAry.removeAll()
-        getVideoDetailApi(searchString : txtFldSearch.text!)
+//        getVideoDetailApi(searchString : txtFldSearch.text!)
+        self.getVideoDetailApi(searchString: txtFldSearch.text!) { (banner_Data) in
+            
+        }
     }
     
     //MARK:--> COLLECTION VIEW DELEGATE
@@ -180,7 +253,7 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
     }
     
     //MARK:--> SIGN UP API FUNCTION
-    func getVideoDetailApi(searchString : String) {
+    func getVideoDetailApi(searchString : String,completionHandler: @escaping (_ banner_Data:[String : JSON]) -> Void) {
         
         let param = [
             "page_no"             :   NSNumber(integerLiteral: currentPage),
@@ -192,14 +265,14 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
             
             ] as [String:Any]
         
-        WebServiceProxy.shared.postData("\(Apis.KServerUrl)\(Apis.KGetCategoriesItems)", params: param, showIndicator: true, completion: { (JSON) in
+        WebServiceProxy.shared.postData("\(Apis.KServerUrl)\(Apis.KGetCategoriesItems)", params: param, showIndicator: true, completion: { (jsonData) in
             var AppResponse = Int()
-            AppResponse = JSON["app_response"] as? Int ?? 0
+            AppResponse = jsonData["app_response"] as? Int ?? 0
             
             if AppResponse == 200 {
-                if let CatImageVwAry = JSON["categories_with_images"] as? NSDictionary {
+                if let CatImageVwAry = jsonData["categories_with_images"] as? NSDictionary {
                     
-                    if let resultDict = JSON["categories_details"] as? NSDictionary {
+                    if let resultDict = jsonData["categories_details"] as? NSDictionary {
                         self.bannerName = resultDict["category_name"] as? String ?? ""
                         self.bannerContent = resultDict[""] as? String ?? "banner_content"
                     }
@@ -216,7 +289,20 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
                         }
                     }
                 }
-                self.colVw.reloadData()
+                
+                DispatchQueue.main.async {
+                    self.colVw.reloadData()
+                }
+
+                guard let jsonResult = JSON.init(jsonData).dictionary else {
+                    return
+                }
+                
+                if let banner_Data = jsonResult["results"]?.dictionary {
+                    self.img_Thumbnail = jsonResult["cat_thumbnail"]!.stringValue
+                    completionHandler(banner_Data)
+                }
+                
             }
             Proxy.shared.hideActivityIndicator()
         })
@@ -286,5 +372,50 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
     //MARK:--> PROTOCOAL FUNCTION
     func selectedImage(index: Int) {
         viewWillAppear(false)
+    }
+    
+    //MARK:--> PLAY VIDEO  FUNCTION
+    func videoPlayerPlay(Url: String,thumbURL:URL!) {
+        self.img_Thumb.isHidden=false
+        
+        let videoURL = URL(string: "\(Apis.KVideoURl)\(Url)")
+        if self.playerController != nil {
+            
+            self.img_Thumb.sd_setImage(with: thumbURL,placeholderImage: nil, completed: nil)
+            
+            let currentItem = AVPlayerItem.init(url: videoURL!)
+            self.player?.replaceCurrentItem(with: currentItem)
+            self.player?.play()
+            
+        } else {
+            self.img_Thumb.sd_setImage(with: thumbURL,placeholderImage: nil, completed: nil)
+            
+            self.playerController  = AVPlayerViewController()
+            self.player = AVPlayer(url: videoURL!)
+            self.playerController?.videoGravity = .resizeAspectFill
+            self.playerController?.player = self.player
+            self.playerController?.view = videoVw
+            self.playerController?.view.frame = videoVw.bounds
+            
+            self.playerController?.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.playerController?.showsPlaybackControls=false
+            self.playerController?.view.backgroundColor = .white
+            self.addChild(self.playerController!)
+            videoVw.addSubview(self.playerController!.view )
+            self.playerController!.view.frame = videoVw.bounds
+            self.player!.play()
+            
+        }
+        
+        self.player?.addPeriodicTimeObserver(forInterval: CMTimeMake(value: 1, timescale: 600), queue: DispatchQueue.main, using: { time in
+            
+            if self.player?.currentItem?.status == AVPlayerItem.Status.readyToPlay {
+                
+                if let isPlaybackLikelyToKeepUp = self.player?.currentItem?.isPlaybackLikelyToKeepUp {
+                    //do what ever you want with isPlaybackLikelyToKeepUp value, for example, show or hide a activity indicator.
+                    self.img_Thumb.isHidden=true
+                }
+            }
+        })
     }
 }
