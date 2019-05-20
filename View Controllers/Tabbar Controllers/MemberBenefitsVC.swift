@@ -38,6 +38,10 @@ class MemberBenefitsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate
             Proxy.shared.pushToNextVC(identifier: "WebSeriesVC", isAnimate: true, currentViewController: self)
             break
         case "360":
+            if Proxy.shared.authNil() == "" {
+                Proxy.shared.pushToNextVC(identifier: "SignUpVC", isAnimate: true, currentViewController: self)
+                return
+            }
             let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
             vc.str_URL = Apis.K360Camp
             self.navigationController?.pushViewController(vc, animated: true)
@@ -192,9 +196,22 @@ class MemberBenefitsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate
             }
             
             if type == "360" {
-                let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
-                vc.str_URL = Apis.K360Camp
-                self.navigationController?.pushViewController(vc, animated: true)
+                //varinder17
+                if Proxy.shared.authNil() == "" {
+                    Proxy.shared.pushToNextVC(identifier: "SignUpVC", isAnimate: true, currentViewController: self)
+                    return
+                }
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
+                    vc.str_URL = Apis.K360Camp
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }else{
+                    let nav = StoryboardChnage.iPhoneStoryboard.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+                    nav.fromCont = "360"
+                    //nav.comeFromSideMenu = true
+                    nav.comeFromAboutUs = true
+                    self.navigationController?.pushViewController(nav, animated: true)
+                }
             }
             
             if type == "web-series" {
@@ -209,6 +226,7 @@ class MemberBenefitsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate
 //                Proxy.shared.pushToNextVC(identifier: "NearMeCampsVC", isAnimate: true, currentViewController: self)
                 let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "NearMeCampsVC") as! NearMeCampsVC
                 vc.isBackEnabled = true
+                vc.comeFromAboutUs = true
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             

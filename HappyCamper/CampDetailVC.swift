@@ -83,6 +83,10 @@ class CampDetailVC: UIViewController, SelectMenuOption ,SelectAviatorImage,TopHe
             Proxy.shared.pushToNextVC(identifier: "WebSeriesVC", isAnimate: true, currentViewController: self)
             break
         case "360":
+            if Proxy.shared.authNil() == "" {
+                Proxy.shared.pushToNextVC(identifier: "SignUpVC", isAnimate: true, currentViewController: self)
+                return
+            }
             let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
             vc.str_URL = Apis.K360Camp
             self.navigationController?.pushViewController(vc, animated: true)
@@ -117,7 +121,7 @@ class CampDetailVC: UIViewController, SelectMenuOption ,SelectAviatorImage,TopHe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UIDevice.current.userInterfaceIdiom == .pad{
+        if UIDevice.current.userInterfaceIdiom == .pad {
             
             viewController = (StoryboardChnage.mainStoryboard.instantiateViewController(withIdentifier: "MenuDrawerController") as! MenuDrawerController)
             viewController?.delegate = self
@@ -126,16 +130,14 @@ class CampDetailVC: UIViewController, SelectMenuOption ,SelectAviatorImage,TopHe
             targetVw.addSubview(viewController!.view)
             viewController?.tblVw.delegate = viewController
             viewController?.tblVw.dataSource = viewController
-            
+            //TODO:
+            let isIpadPro:Bool = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) > 1024
+            if isIpadPro == true {
             self.updateConstraints()
-            
-        }else{
-            //Load Data
-            //  self.reloadData()
+            }
         }
         
         //varinder15
-        
         CampDetailVMObj.postCampDetailApi {
             
             if self.CampDetailVMObj.campLike == true {
@@ -143,13 +145,22 @@ class CampDetailVC: UIViewController, SelectMenuOption ,SelectAviatorImage,TopHe
             } else {
                 self.imgVwLike.image = UIImage(named: "like (2)")
             }
-            
+
+            //varinder17
             if self.CampDetailVMObj.CampModelAry[0].campAddress != "" {
                 self.vwAddress.isHidden = false
-                self.lblAddress.text!   = self.CampDetailVMObj.CampModelAry[0].campLocation
+                self.lblAddress.text!   = self.CampDetailVMObj.CampModelAry[0].campAddress
             } else {
                 self.vwAddress.isHidden = true
             }
+            if self.CampDetailVMObj.CampModelAry[0].campPhone != "" {
+                self.vwPhone.isHidden = false
+                self.lblPhoneNumber.text! = self.CampDetailVMObj.CampModelAry[0].campPhone
+            } else {
+                self.vwPhone.isHidden = true
+                self.lblPhoneNumber.text! = self.CampDetailVMObj.CampModelAry[0].campPhone
+            }
+            //----------------
             
             if self.CampDetailVMObj.CampModelAry[0].campLongDescription != "Blank" {
                 self.lblDescriptions.isHidden = false
@@ -160,22 +171,26 @@ class CampDetailVC: UIViewController, SelectMenuOption ,SelectAviatorImage,TopHe
             }
             
             if self.lblDescriptions.text!.isEmpty ||  self.lblDescriptions.text! == "\n" {
-                self.view_TopConstraints.constant = -40
+                self.view_TopConstraints?.constant = -40
             }
+            
             //varinder15
-            
             self.lblTitleHeader.text! = self.CampDetailVMObj.CampModelAry[0].campTitle
-            //  self.lblTitle.text!       = self.CampDetailVMObj.CampModelAry[0].campTitle
             self.title = self.CampDetailVMObj.CampModelAry[0].campTitle
-            self.colVw.reloadData()
+            //varinder17
             
-            self.tblviewMain.reloadData()
-            
+            //TODO:
+            let isIpadPro:Bool = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) > 1024
+            if isIpadPro != true {
+                self.updateConstraints()
+            }
+            DispatchQueue.main.async {
+                self.colVw.reloadData()
+                self.tblviewMain.reloadData()
+            }
         }
-        //  if UIDevice.current.userInterfaceIdiom == .pad {
         
         self.tblviewMain.addObserver(self, forKeyPath: "contentSize", options: [], context: nil)
-        //  }
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -190,6 +205,7 @@ class CampDetailVC: UIViewController, SelectMenuOption ,SelectAviatorImage,TopHe
         }
     }
     
+    //Remove This
     func reloadData() {
         CampDetailVMObj.postCampDetailApi {
             if self.CampDetailVMObj.campLike == true {

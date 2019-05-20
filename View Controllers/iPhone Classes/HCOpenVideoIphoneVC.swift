@@ -166,15 +166,11 @@ class HCOpenVideoIphoneVC: UIViewController {
         
         if Proxy.shared.userId() != "" || Proxy.shared.authNil() != ""{
             if self.likeState == 0 {
-                self.videoLikeApi {
-                    //                    self.getData()
-                }
+                self.videoLikeApi { }
             } else {
-                self.videoDislikeApi {
-                    //                    self.getData()
-                }
+                self.videoDislikeApi {  }
             }
-        } else{
+        } else {
             Proxy.shared.presentAlert(withTitle: "", message: "Please login", currentViewController: self)
         }
     }

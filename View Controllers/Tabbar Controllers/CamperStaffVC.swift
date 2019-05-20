@@ -33,6 +33,10 @@ class CamperStaffVC: UIViewController,TopHeaderViewDelegate,SelectMenuOption,Sel
             Proxy.shared.pushToNextVC(identifier: "WebSeriesVC", isAnimate: true, currentViewController: self)
             break
         case "360":
+            if Proxy.shared.authNil() == "" {
+                Proxy.shared.pushToNextVC(identifier: "SignUpVC", isAnimate: true, currentViewController: self)
+                return
+            }
             let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
             vc.str_URL = Apis.K360Camp
             self.navigationController?.pushViewController(vc, animated: true)

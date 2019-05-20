@@ -42,7 +42,7 @@ class CampDetailVM {
                     
                     if resultDict.value(forKey: self.dataArray.object(at: i) as! String) != nil {
                         
-                        let str =  resultDict.value(forKey: self.dataArray.object(at: i) as! String) as! String
+                        var str =  resultDict.value(forKey: self.dataArray.object(at: i) as! String) as! String
                         
                         if !str.isEmpty {
                             var titleStr = ""
@@ -52,12 +52,17 @@ class CampDetailVM {
                             if i == 1 {
                                 titleStr = "Year Founded:"
                             }
+                            
+                            //varinder17
                             if i == 2 {
                                 titleStr = "Ages:"
+                                str = "From \(str)"
                             }
                             if i == 3 {
                                 titleStr = "Gender:"
+                                str = "\(str) Only"
                             }
+
                             if i == 4 {
                                 titleStr = "Religious Affilliation:"
                             }

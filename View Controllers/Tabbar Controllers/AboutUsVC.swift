@@ -23,6 +23,7 @@ class AboutUsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate,Select
     @IBOutlet weak var targetVw: UIView!
     var viewController : MenuDrawerController?
     var comeFromSideMenu = Bool()
+    var comeFromAboutUs = Bool()
     
     func setBackToHome() {
         self.navigationController?.popToRootViewController(animated: true)
@@ -97,6 +98,10 @@ class AboutUsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate,Select
             Proxy.shared.pushToNextVC(identifier: "WebSeriesVC", isAnimate: true, currentViewController: self)
             break
         case "360":
+            if Proxy.shared.authNil() == "" {
+                Proxy.shared.pushToNextVC(identifier: "SignUpVC", isAnimate: true, currentViewController: self)
+                return
+            }
             let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
             vc.str_URL = Apis.K360Camp
             self.navigationController?.pushViewController(vc, animated: true)
@@ -133,7 +138,12 @@ class AboutUsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate,Select
     
     //varinder14
     @objc func backBtnAction(){
-        webView.goBack()
+        //varinder17
+        if comeFromAboutUs == true {
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            webView.goBack()
+        }
     }
     
     func showNavigation() {
@@ -235,11 +245,11 @@ class AboutUsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate,Select
             urlStr = "\(Apis.KAboutUsLink)"
             if Proxy.shared.authNil() != "" {
                 urlStr=""
-                urlStr = "\(Apis.KAboutUsLink)" + "/abc"
+                urlStr = "\(Apis.KAboutUsLink)" + ""
             }
             url = URL (string: Apis.KSiteUrl + "\(urlStr)")
         }
-        //
+        
         //      SwiftSpinner.show("Please wait..", animated: true)
         Proxy.shared.showActivityIndicator()
         //      let url = URL (string: Apis.KSiteUrl + "\(urlStr)")
@@ -247,20 +257,32 @@ class AboutUsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate,Select
         webView.delegate = self
         webView.loadRequest(requestObj)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(observeTapOnLinks), name: NSNotification.Name("campfire_url"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(observeTapOnWebLinks), name: NSNotification.Name("campfire_url"), object: nil)
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("campfire_url"), object: nil)
+
     }
     
+    override func viewWillDisappear(_ animated: Bool) {    }
+    
     // Notify on click on links
-    @objc func observeTapOnLinks(_ notification: Notification) {
+    @objc func observeTapOnWebLinks(_ notification: Notification) {
         if let object = notification.userInfo as NSDictionary? {
             
             let type = object["type"] as! String
             
+            //varinder17
+            
             if type == "community" {
-                let nav = StoryboardChnage.mainStoryboard.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
-                nav.fromCont = "Community"
-                self.navigationController?.pushViewController(nav, animated: true)
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    let nav = StoryboardChnage.mainStoryboard.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+                    nav.fromCont = "Community"
+                    self.navigationController?.pushViewController(nav, animated: true)
+                } else{
+                    let nav = StoryboardChnage.iPhoneStoryboard.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+                    nav.fromCont = "Community"
+                    nav.comeFromAboutUs = true
+                    self.navigationController?.pushViewController(nav, animated: true)
+                }
             }
             
             if type == "ipad-signup" {
@@ -268,9 +290,21 @@ class AboutUsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate,Select
             }
             
             if type == "360" {
-                let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
-                vc.str_URL = Apis.K360Camp
-                self.navigationController?.pushViewController(vc, animated: true)
+                //varinder17
+                if Proxy.shared.authNil() == "" {
+                    Proxy.shared.pushToNextVC(identifier: "SignUpVC", isAnimate: true, currentViewController: self)
+                    return
+                }
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
+                    vc.str_URL = Apis.K360Camp
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }else{
+                    let nav = StoryboardChnage.iPhoneStoryboard.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+                    nav.fromCont = "360"
+                    nav.comeFromAboutUs = true
+                    self.navigationController?.pushViewController(nav, animated: true)
+                }
             }
             
             if type == "web-series" {
@@ -285,6 +319,7 @@ class AboutUsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate,Select
 //                Proxy.shared.pushToNextVC(identifier: "NearMeCampsVC", isAnimate: true, currentViewController: self)
                 let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "NearMeCampsVC") as! NearMeCampsVC
                 vc.isBackEnabled = true
+                vc.comeFromAboutUs = true
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             }
@@ -298,9 +333,15 @@ class AboutUsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate,Select
     override func viewWillAppear(_ animated: Bool) {
         
         if UIDevice.current.userInterfaceIdiom != .pad {
-            self.showNavigation()
-            if let leftMenuController = SideMenuManager.default.menuLeftNavigationController?.viewControllers.first as? LeftMenuViewController{
-                leftMenuController.delegate = self;
+            //varinder17
+            if comeFromAboutUs == true {
+                self.showNavigationBack()
+            }else{
+                
+                self.showNavigation()
+                if let leftMenuController = SideMenuManager.default.menuLeftNavigationController?.viewControllers.first as? LeftMenuViewController{
+                    leftMenuController.delegate = self;
+                }
             }
         }
         
@@ -339,6 +380,10 @@ class AboutUsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate,Select
                 btn_Back.isHidden=true
             }
             
+            //varinder17
+            if comeFromAboutUs == true {
+                self.showNavigationBack()
+            }
         }
         Proxy.shared.hideActivityIndicator()
     }

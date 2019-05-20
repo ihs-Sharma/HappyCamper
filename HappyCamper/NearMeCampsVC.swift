@@ -31,7 +31,7 @@ class NearMeCampsVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopH
     var NearMeCampVMObj = NearMeCampVM()
     var viewController : MenuDrawerController?
     var variableConst = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","W","X","Y","Z"]
-    
+    var comeFromAboutUs = false
     var Isscrollpage = false
     var page = 1
     var isBackEnabled = false
@@ -53,6 +53,10 @@ class NearMeCampsVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopH
             Proxy.shared.pushToNextVC(identifier: "WebSeriesVC", isAnimate: true, currentViewController: self)
             break
         case "360":
+            if Proxy.shared.authNil() == "" {
+                Proxy.shared.pushToNextVC(identifier: "SignUpVC", isAnimate: true, currentViewController: self)
+                return
+            }
             let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
             vc.str_URL = Apis.K360Camp
             self.navigationController?.pushViewController(vc, animated: true)
@@ -84,33 +88,54 @@ class NearMeCampsVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopH
         
     }
     
+    //varinder17
+    func showNavigationBack(){
+        let image3 = UIImage(named: "left_arrow")
+        let frameimg = CGRect(x: 15, y: 5, width: 13, height: 22)
+        
+        let someButton = UIButton(frame: frameimg)
+        someButton.setBackgroundImage(image3, for: .normal)
+        someButton.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
+        someButton.showsTouchWhenHighlighted = false
+        
+        let mailbutton = UIBarButtonItem(customView: someButton)
+        navigationItem.leftBarButtonItem = mailbutton
+    }
+    
+    @objc func backBtnAction(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //varinder15
-        self.navigationController?.navigationBar.topItem?.title  = "CAMP NEAR ME"
-        if let navController = self.navigationController, navController.viewControllers.count >= 2 {
-            let viewController = navController.viewControllers[navController.viewControllers.count - 2]
-            if viewController.isKind(of: MemberBenefitsVC.self) {
-                self.title = "CAMP NEAR ME"
-            } else {
-                if UIDevice.current.userInterfaceIdiom != .pad {
-                    Proxy.shared.showNavigationOnTopMenu(controller: self)
-                }
-            }
-        } else {
-            if UIDevice.current.userInterfaceIdiom != .pad {
-                Proxy.shared.showNavigationOnTopMenu(controller: self)
-            }
-            
-        }
-        
+
         //varinder10
         if UIDevice.current.userInterfaceIdiom != .pad {
             if let leftMenuController = SideMenuManager.default.menuLeftNavigationController?.viewControllers.first as? LeftMenuViewController{
                 leftMenuController.delegate = self;
             }
             
+            self.navigationController?.navigationBar.topItem?.title  = "CAMP NEAR ME"
+
+            if comeFromAboutUs == true {
+                self.showNavigationBack()
+            } else {
+                //varinder15
+                if let navController = self.navigationController, navController.viewControllers.count >= 2 {
+                    let viewController = navController.viewControllers[navController.viewControllers.count - 2]
+                    if viewController.isKind(of: MemberBenefitsVC.self) {
+                        self.title = "CAMP NEAR ME"
+                    } else {
+                        if UIDevice.current.userInterfaceIdiom != .pad {
+                            Proxy.shared.showNavigationOnTopMenu(controller: self)
+                        }
+                    }
+                } else {
+                    if UIDevice.current.userInterfaceIdiom != .pad {
+                        Proxy.shared.showNavigationOnTopMenu(controller: self)
+                    }
+                }
+            }
         } else {
             if isBackEnabled == false {
                 self.img_Back.isHidden=true

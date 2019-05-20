@@ -31,6 +31,7 @@ class SignUpVC: UIViewController,  SelectMenuOption, SelectAviatorImage, SKPayme
     @IBOutlet weak var view_HeaderView: HCHeaderView!
 
     @IBOutlet weak var btnCheck: SetCornerButton!
+    @IBOutlet weak var txt_LastName: UITextField!
     @IBOutlet weak var txtFldName: UITextField!
     @IBOutlet weak var txtFldEmail: UITextField!
     @IBOutlet weak var txtFldCreatePassword: UITextField!
@@ -66,6 +67,10 @@ class SignUpVC: UIViewController,  SelectMenuOption, SelectAviatorImage, SKPayme
             Proxy.shared.pushToNextVC(identifier: "WebSeriesVC", isAnimate: true, currentViewController: self)
             break
         case "360":
+            if Proxy.shared.authNil() == "" {
+                Proxy.shared.pushToNextVC(identifier: "SignUpVC", isAnimate: true, currentViewController: self)
+                return
+            }
             let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
             vc.str_URL = Apis.K360Camp
             self.navigationController?.pushViewController(vc, animated: true)

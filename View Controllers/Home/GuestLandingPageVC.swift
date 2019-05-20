@@ -41,7 +41,7 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
     //PLAYER TASK
     var player : AVPlayer?
     //    var videoLayer : AVPlayerLayer?
-    var playerController  : AVPlayerViewController?
+    var playerController  = AVPlayerViewController()
     var currentItem : AVPlayerItem!
     var refreshControl = UIRefreshControl()
     
@@ -62,6 +62,10 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
             Proxy.shared.pushToNextVC(identifier: "WebSeriesVC", isAnimate: true, currentViewController: self)
             break
         case "360":
+            if Proxy.shared.authNil() == "" {
+                Proxy.shared.pushToNextVC(identifier: "SignUpVC", isAnimate: true, currentViewController: self)
+                return
+            }
             let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
             vc.str_URL = Apis.K360Camp
             self.navigationController?.pushViewController(vc, animated: true)
@@ -185,7 +189,7 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
                         self?.colVwBanner.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: .right)
                         
                         let bannerModelAryObj = self?.guestLandingVMObj.BannerModelAry[self?.playCount ?? 0]
-                        self?.videoPlayerPlay(Url: bannerModelAryObj?.videoPlayLink ?? "", thumbURL:URL.init(string: "\(Apis.KVideosThumbURL)\(bannerModelAryObj?.bannerVideoImgThumb ?? "")"))
+                        self?.videoPlayerPlay(Url: bannerModelAryObj?.videoPlayLink ?? "", thumbURL:URL.init(string: "\(Apis.KVideosThumbURL)\(bannerModelAryObj?.bannerVideoImgThumb ?? "")"), isAutoPlay: true)
                     } else {
                         self?.playCount = 0
                         
@@ -193,7 +197,7 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
                         self?.colVwBanner.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: .left)
                         
                         let bannerModelAryObj = self?.guestLandingVMObj.BannerModelAry[self?.playCount ?? 0]
-                        self?.videoPlayerPlay(Url: bannerModelAryObj?.videoPlayLink ?? "", thumbURL:URL.init(string: "\(Apis.KVideosThumbURL)\(bannerModelAryObj?.bannerVideoImgThumb ?? "")"))
+                        self?.videoPlayerPlay(Url: bannerModelAryObj?.videoPlayLink ?? "", thumbURL:URL.init(string: "\(Apis.KVideosThumbURL)\(bannerModelAryObj?.bannerVideoImgThumb ?? "")"), isAutoPlay: true)
                     }
                     
                 }
@@ -253,7 +257,6 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
             view_GradiantLeft.layer.sublayers=nil
             view_GradiantLeft.layer.addSublayer(gradientLayer1)
             
-            
             let gradientLayer2:CAGradientLayer = CAGradientLayer()
             gradientLayer2.frame.size = view_GradiantRight.frame.size
             gradientLayer2.colors =
@@ -290,7 +293,6 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
                 
                 let finalAfterLogin = "\(dict_AfterLogin["banner_text_1"] as! String) \n\(dict_AfterLogin["banner_text_2"] as! String) \n\(dict_AfterLogin["banner_text_3"] as! String) \n\(dict_AfterLogin["banner_text_4"] as! String)\n" + extraSpace
                 
-                
                 let finalBeforeLogin = "\(dict_BeforeLogin["text_before_login_1"] as! String) \n\(dict_BeforeLogin["text_before_login_2"] as! String) \n\(dict_BeforeLogin["text_before_login_3"] as! String) \n\(dict_BeforeLogin["text_before_login_4"] as! String)" + extraSpace
 
                 let auth = Proxy.shared.authNil()
@@ -301,7 +303,7 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
                 }
                 
                     DispatchQueue.main.async {
-                        self.videoPlayerPlay(Url: bannerModelAryObj.videoPlayLink,thumbURL: URL.init(string: "\(Apis.KVideosThumbURL)\(bannerModelAryObj.bannerVideoImgThumb)"))
+                        self.videoPlayerPlay(Url: bannerModelAryObj.videoPlayLink,thumbURL: URL.init(string: "\(Apis.KVideosThumbURL)\(bannerModelAryObj.bannerVideoImgThumb)"), isAutoPlay: false)
                     }
 
                 self.tblVwMain.reloadData()
@@ -339,11 +341,11 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
                 self.player?.pause()
                 //            }
                 //            self.player = nil
-                //            self.playerController?.player = nil
+                //            self.playerController.player = nil
                 //            self.playerController = nil
-                //            self.playerController?.willMove(toParent: self)
-                //            self.playerController?.view.removeFromSuperview()
-                //            self.playerController?.removeFromParent()
+                //            self.playerController.willMove(toParent: self)
+                //            self.playerController.view.removeFromSuperview()
+                //            self.playerController.removeFromParent()
             }
             
             NotificationCenter.default.removeObserver(self.notifObserver!)
@@ -519,13 +521,13 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
     }
     
     //MARK:--> PLAY VIDEO FUNCTION
-    func videoPlayerPlay(Url: String,thumbURL:URL!) {
+    func videoPlayerPlay(Url: String,thumbURL:URL!,isAutoPlay:Bool) {
         if videoVw != nil {
             
             self.img_Thumb.isHidden=false
             let videoURL = URL(string: "\(Apis.KVideoURl)\(Url)") //http://techslides.com/demos/sample-videos/small.mp4
             
-            if playerController != nil {
+            if playerController != nil && isAutoPlay==true {
                 
                 self.img_Thumb.sd_setImage(with: thumbURL,placeholderImage: nil, completed: nil)
                 
@@ -537,25 +539,24 @@ class GuestLandingPageVC: UIViewController, SelectMenuOption ,SelectAviatorImage
                 
                 self.img_Thumb.sd_setImage(with: thumbURL,placeholderImage: nil, completed: nil)
                 
-                playerController  = AVPlayerViewController()
+//                playerController  = AVPlayerViewController()
                 player = AVPlayer(url: videoURL!)
-                playerController?.videoGravity = .resizeAspectFill
-                playerController?.player = player
-                playerController?.view = videoVw
+                playerController.videoGravity = .resizeAspectFill
+                playerController.player = player
+                playerController.view = videoVw
                 
-                playerController?.view.frame = videoVw.bounds
-                playerController?.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                playerController?.showsPlaybackControls=false
-//                playerController?.view.backgroundColor = .white
+                playerController.view.frame = videoVw.bounds
+                playerController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                playerController.showsPlaybackControls=false
                 //Devansh
                 if (UIDevice.current.userInterfaceIdiom != .pad){
-                    playerController?.view.backgroundColor = .clear
+                    playerController.view.backgroundColor = .clear
                 }else{
-                    playerController?.view.backgroundColor = .white
+                    playerController.view.backgroundColor = .white
                 }
-                self.addChild(playerController!)
-                playerController?.didMove(toParent: self)
-                videoVw.addSubview(playerController!.view)
+                self.addChild(playerController)
+                playerController.didMove(toParent: self)
+                videoVw.addSubview(playerController.view)
                 player?.play()
             }
             

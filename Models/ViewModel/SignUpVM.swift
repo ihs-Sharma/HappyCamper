@@ -13,6 +13,7 @@ import StoreKit
 class SignUpVM {
     
     var userName = String()
+    var last_Name = String()
     var userEmail = String()
     var userPassword = String()
     var userConfirmPassword = String()
@@ -26,7 +27,7 @@ class SignUpVM {
         let param = [
             "user_email" : "\(userEmail)",
             "user_name" : "\(userName)",
-            "last_name" : "\(userName)",
+            "last_name" : "\(last_Name)",
             "user_password" : "\(userPassword)",
             "conformPassword" : "\(userConfirmPassword)",
             "recaptchaReactive": "\(recaptchaReactive)",
@@ -92,6 +93,10 @@ extension SignUpVC: UITextFieldDelegate, UICollectionViewDelegate, UICollectionV
             Proxy.shared.presentAlert(withTitle: "", message: AlertValue.name, currentViewController: self)
         } else if !Proxy.shared.isValidInput(txtFldName.text!) {
             Proxy.shared.presentAlert(withTitle: "", message: AlertValue.validName, currentViewController: self)
+        } else  if txt_LastName.isBlank {
+            Proxy.shared.presentAlert(withTitle: "", message: AlertValue.lastName, currentViewController: self)
+        } else if !Proxy.shared.isValidInput(txt_LastName.text!) {
+            Proxy.shared.presentAlert(withTitle: "", message: AlertValue.validLastName, currentViewController: self)
         } else if txtFldEmail.isBlank {
             Proxy.shared.presentAlert(withTitle: "", message: AlertValue.email, currentViewController: self)
         } else if !Proxy.shared.isValidEmail(txtFldEmail.text!) {
@@ -106,6 +111,7 @@ extension SignUpVC: UITextFieldDelegate, UICollectionViewDelegate, UICollectionV
             Proxy.shared.presentAlert(withTitle: "", message: AlertValue.zipCode, currentViewController: self)
         } else {
             SignUpVMObj.userName     = txtFldName.text!
+            SignUpVMObj.last_Name = txt_LastName.text!
             SignUpVMObj.userEmail    = txtFldEmail.text!
             SignUpVMObj.userPassword = txtFldCreatePassword.text!
             SignUpVMObj.userConfirmPassword = txtFldConfirmPassword.text!
