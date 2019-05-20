@@ -4,7 +4,7 @@
 //
 //  Created by Wegile on 08/04/19.
 //  Copyright © 2019 wegile. All rights reserved.
-//
+
 
 import UIKit
 import AVKit
@@ -24,7 +24,6 @@ class CampfireStuffCell: UITableViewCell {
     @IBOutlet weak var lbl_Title: UILabel!
     @IBOutlet weak var lbl_Desc: UILabel!
     @IBOutlet weak var btn_ShareStuff: UIButton!
-    
 }
 
 // Left Section Contest Cell
@@ -138,8 +137,10 @@ class CampfireVC: UIViewController,TopHeaderViewDelegate ,SelectAviatorImage,AVP
     var counselorCount:Int = 0
     var numberOfAds:Int = 0
     var numberOfAdsData:Int = 0
+    @IBOutlet weak var videoViewHeight_Constraints: NSLayoutConstraint!
 
     var isSection:String!
+    
     //MARK:--> Select Profile Image
     func selectedImage(index: Int) {
         viewWillAppear(false)
@@ -193,6 +194,16 @@ class CampfireVC: UIViewController,TopHeaderViewDelegate ,SelectAviatorImage,AVP
         super.viewDidLoad()
         isSection = "hot"
         self.title  = "CAMPFIRE"
+        
+        //varinder16
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let isIpadPro:Bool = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) > 1024
+            
+            if isIpadPro != true {
+                videoViewHeight_Constraints.constant = 460
+            }
+        }
+        
         // Do any additional setup after loading the view.
         
         if UIDevice.current.userInterfaceIdiom == .pad {
@@ -447,7 +458,7 @@ extension CampfireVC {
         self.addChild(playerController)
         playerController.didMove(toParent: self)
         tour_VideoView.addSubview(playerController.view)
-        player_Tour.play()
+//        player_Tour.play()
     }
 }
 

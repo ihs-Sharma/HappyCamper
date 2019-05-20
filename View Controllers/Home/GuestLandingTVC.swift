@@ -151,6 +151,15 @@ class GuestLandingTVC: UITableViewCell, UICollectionViewDataSource, UICollection
                 }
             }
             
+            //varinder17
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                
+                let isIpadPro:Bool = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) > 1024
+                if isIpadPro == false {
+                    cell.imgVw.contentMode = .scaleAspectFit
+                }
+            }
+            
             cell.left_btn.layer.cornerRadius = 18.0
             cell.left_btn.layer.masksToBounds = true
             
@@ -247,6 +256,7 @@ class GuestLandingTVC: UITableViewCell, UICollectionViewDataSource, UICollection
     
     func colVwAdsReload() {
         colVwAds.reloadData()
+        colVwAds.layoutIfNeeded()
     }
     
     

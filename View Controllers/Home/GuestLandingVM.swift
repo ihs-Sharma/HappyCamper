@@ -224,7 +224,7 @@ extension GuestLandingPageVC: UITableViewDelegate, UITableViewDataSource,UIColle
         
         //        lblTitle.text! = bannerModelAryObj.bannerVideoTitle
         playCount = indexPath.row
-        videoPlayerPlay(Url: bannerModelAryObj.videoPlayLink, thumbURL:URL.init(string: "\(Apis.KVideosThumbURL)\(bannerModelAryObj.bannerVideoImgThumb)"))
+        videoPlayerPlay(Url: bannerModelAryObj.videoPlayLink, thumbURL:URL.init(string: "\(Apis.KVideosThumbURL)\(bannerModelAryObj.bannerVideoImgThumb)"), isAutoPlay: true)
         
     }
     

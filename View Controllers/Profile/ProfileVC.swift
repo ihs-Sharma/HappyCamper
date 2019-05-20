@@ -85,7 +85,7 @@ class ProfileVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopHeade
             viewController?.tblVw.delegate = viewController
             viewController?.tblVw.dataSource = viewController
         } else {
-            self.navigationController?.navigationBar.topItem?.title  = "MY PROFILE"
+            self.title  = "MY PROFILE"
         }
         
     }

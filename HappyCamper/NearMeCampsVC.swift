@@ -24,15 +24,17 @@ class NearMeCampsVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopH
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var imgVwAviator: SetCornerImageView!
     @IBOutlet weak var btn_Menu: UIButton!
+    @IBOutlet weak var img_Back: UIImageView!
+    @IBOutlet weak var btnBack_WidthConstraint: NSLayoutConstraint!
 
     //MARK:--> VARIABLES
     var NearMeCampVMObj = NearMeCampVM()
     var viewController : MenuDrawerController?
     var variableConst = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","W","X","Y","Z"]
-    
+    var comeFromAboutUs = false
     var Isscrollpage = false
     var page = 1
-    
+    var isBackEnabled = false
     
     @IBOutlet weak var colVw: UICollectionView!
     
@@ -82,22 +84,59 @@ class NearMeCampsVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopH
         
     }
     
+    //varinder17
+    func showNavigationBack(){
+        let image3 = UIImage(named: "left_arrow")
+        let frameimg = CGRect(x: 15, y: 5, width: 13, height: 22)
+        
+        let someButton = UIButton(frame: frameimg)
+        someButton.setBackgroundImage(image3, for: .normal)
+        someButton.addTarget(self, action: #selector(backBtnAction), for: .touchUpInside)
+        someButton.showsTouchWhenHighlighted = false
+        
+        let mailbutton = UIBarButtonItem(customView: someButton)
+        navigationItem.leftBarButtonItem = mailbutton
+    }
+    
+    @objc func backBtnAction(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if UIDevice.current.userInterfaceIdiom != .pad {
-            Proxy.shared.showNavigationOnTopMenu(controller: self)
-        }
-        
-        self.navigationController?.navigationBar.topItem?.title  = "CAMP NEAR ME"
 
-        
         //varinder10
         if UIDevice.current.userInterfaceIdiom != .pad {
-            if let leftMenuController = SideMenuManager.default.menuLeftNavigationController?.viewControllers.first as? LeftMenuViewController{
-                leftMenuController.delegate = self;
-            }
+//            if let leftMenuController = SideMenuManager.default.menuLeftNavigationController?.viewControllers.first as? LeftMenuViewController{
+//                leftMenuController.delegate = self;
+//            }
             
+            self.navigationController?.navigationBar.topItem?.title  = "CAMP NEAR ME"
+
+            if comeFromAboutUs == true {
+                self.showNavigationBack()
+            } else {
+                //varinder15
+                if let navController = self.navigationController, navController.viewControllers.count >= 2 {
+                    let viewController = navController.viewControllers[navController.viewControllers.count - 2]
+                    if viewController.isKind(of: MemberBenefitsVC.self) {
+                        self.title = "CAMP NEAR ME"
+                    } else {
+                        if UIDevice.current.userInterfaceIdiom != .pad {
+                            Proxy.shared.showNavigationOnTopMenu(controller: self)
+                        }
+                    }
+                } else {
+                    if UIDevice.current.userInterfaceIdiom != .pad {
+                        Proxy.shared.showNavigationOnTopMenu(controller: self)
+                    }
+                }
+            }
+        } else {
+            if isBackEnabled == false {
+                self.img_Back.isHidden=true
+                self.btnBack_WidthConstraint.constant=0
+            }
         }
         
         tblVw.tableFooterView = UIView()
@@ -145,8 +184,19 @@ class NearMeCampsVC: UIViewController, SelectMenuOption, SelectAviatorImage,TopH
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
+    @IBAction func btnBackAction(_ sender: Any) {
+        Proxy.shared.popToBackVC(isAnimate: true, currentViewController: self)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.page = 1
+        
+        //varinder19
+        if UIDevice.current.userInterfaceIdiom != .pad {
+            if let leftMenuController = SideMenuManager.default.menuLeftNavigationController?.viewControllers.first as? LeftMenuViewController{
+                leftMenuController.delegate = self;
+            }
+        }
         
         if UIDevice.current.userInterfaceIdiom == .pad{
             

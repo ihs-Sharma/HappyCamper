@@ -185,7 +185,26 @@ class MemberBenefitsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate
             
             let type = object["type"] as! String
             
-            if type == "ipad-signup" { }
+            if type == "community" {}
+            
+            if type == "ipad-signup" {
+                Proxy.shared.pushToNextVC(identifier: "SignUpVC", isAnimate: true, currentViewController: self)
+            }
+            
+            if type == "360" {
+                //varinder17
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "HCStaticLinkVC") as! HCStaticLinkVC
+                    vc.str_URL = Apis.K360Camp
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }else{
+                    let nav = StoryboardChnage.iPhoneStoryboard.instantiateViewController(withIdentifier: "AboutUsVC") as! AboutUsVC
+                    nav.fromCont = "360"
+                    //nav.comeFromSideMenu = true
+                    nav.comeFromAboutUs = true
+                    self.navigationController?.pushViewController(nav, animated: true)
+                }
+            }
             
             if type == "web-series" {
                 Proxy.shared.pushToNextVC(identifier: "WebSeriesVC", isAnimate: true, currentViewController: self)
@@ -195,7 +214,13 @@ class MemberBenefitsVC: UIViewController,UIWebViewDelegate,TopHeaderViewDelegate
                 Proxy.shared.pushToNextVC(identifier: "CampfireVC", isAnimate: true, currentViewController: self)
             }
             
-            if type == "nearbycamp" { }
+            if type == "nearbycamp" {
+//                Proxy.shared.pushToNextVC(identifier: "NearMeCampsVC", isAnimate: true, currentViewController: self)
+                let vc = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "NearMeCampsVC") as! NearMeCampsVC
+                vc.isBackEnabled = true
+                vc.comeFromAboutUs = true
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             
             if type == "home" {
                 Proxy.shared.rootWithoutDrawer("TabbarViewController")

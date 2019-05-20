@@ -92,7 +92,6 @@ class LeftMenuViewController: UIViewController {
     @IBAction func backButtonAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 //MARK:- Tableview Delegates and data sources

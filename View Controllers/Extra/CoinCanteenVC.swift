@@ -78,13 +78,7 @@ class CoinCanteenVC: UIViewController, SelectMenuOption ,SelectAviatorImage,TopH
             Proxy.shared.showNavigationOnTopMenu(controller: self)
         }
         
-        //varinder10
-        if UIDevice.current.userInterfaceIdiom != .pad {
-            if let leftMenuController = SideMenuManager.default.menuLeftNavigationController?.viewControllers.first as? LeftMenuViewController{
-                leftMenuController.delegate = self;
-            }
-            
-        }
+      
     
         if KAppDelegate.isCoinCanteenTabSelected {
             //Devansh
@@ -135,6 +129,16 @@ class CoinCanteenVC: UIViewController, SelectMenuOption ,SelectAviatorImage,TopH
         if UIDevice.current.userInterfaceIdiom != .pad{
             return
         }
+        
+        //varinder19
+        if UIDevice.current.userInterfaceIdiom != .pad {
+            if let leftMenuController = SideMenuManager.default.menuLeftNavigationController?.viewControllers.first as? LeftMenuViewController{
+                leftMenuController.delegate = self;
+            }
+            
+        }
+        
+        
         SelectAviatorImageObj = self
         headerDelegate = self
         

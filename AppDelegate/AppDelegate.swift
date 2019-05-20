@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var isGradiantShownForHome:Bool = false
     var isGradiantShownForSubCategory:Bool = false
     var isGradiantShownForCampfire:Bool = false
+    var isGradiantShownForSubEpisodes:Bool = false
     var isCoinCanteenTabSelected:Bool = false
     var isVideoNeedsToPlay:Bool = false
 
@@ -141,8 +142,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             var obj = ["type":"ipad-signup"]
             
+            if str.contains("community") {
+                obj = ["type":"community"]
+            }
+            
             if str.contains("web-series") {
                 obj = ["type":"web-series"]
+            }
+            
+            if str.contains("360") {
+                obj = ["type":"360"]
             }
             
             if str.contains("campfire") {

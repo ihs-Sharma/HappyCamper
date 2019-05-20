@@ -28,7 +28,7 @@ class HCOpenVideoVC: UIViewController {
     @IBOutlet weak var btnView: UIButton!
     @IBOutlet weak var btnLikedRef: UIButton!
     @IBOutlet weak var btn_ReadAlong: UIButton!
-
+    
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var img_Thumb: UIImageView!
@@ -156,9 +156,9 @@ class HCOpenVideoVC: UIViewController {
             self.playerController?.view.removeFromSuperview()
             self.playerController?.removeFromParent()
         }
-//        self.willMove(toParent: nil)
-//        self.view.removeFromSuperview()
-//        self.removeFromParent()
+        //        self.willMove(toParent: nil)
+        //        self.view.removeFromSuperview()
+        //        self.removeFromParent()
         self.navigationController?.popViewController(animated: true)
         
     }
@@ -205,7 +205,7 @@ class HCOpenVideoVC: UIViewController {
     }
     
     @IBAction func btnReadAlongAction(_ sender: Any) {
-
+        
         let alertController = UIAlertController(title: str_VideoTitle, message: str_Transcription, preferredStyle: UIAlertController.Style.alert)
         // Background color.
         let backView = alertController.view.subviews.last?.subviews.last
@@ -253,7 +253,7 @@ extension HCOpenVideoVC {
                 let string =  bannerData[0]["video_description"].stringValue
                 self.str_Transcription = bannerData[0]["transcription"].stringValue.htmlToString
                 self.str_VideoTitle = bannerData[0]["video_title"].stringValue.htmlToString
-
+                
                 self.lblDescription.text! = string.htmlToString
                 
                 
@@ -520,15 +520,28 @@ extension HCOpenVideoVC: UITableViewDataSource, UITableViewDelegate, SelectedVid
         //        cell.btnRightAction.tag = indexPath.row
         //        cell.btnRightAction.addTarget(self, action: #selector(rightSlideAction(_:)), for: .touchUpInside)
         //
-//                cell.btnViewAll.tag = indexPath.row
-//                cell.btnViewAll.addTarget(self, action: #selector(btnViewAllAction), for: .touchUpInside)
+        cell.btnViewAll.tag = indexPath.row
+        cell.btnViewAll.addTarget(self, action: #selector(btnViewAllAction(sender:)), for: .touchUpInside)
         cell.colVw.reloadData()
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 270
+        return 270
+    }
+    
+    //varinder16
+    @objc func btnViewAllAction(sender: UIButton) {
+        
+        if self.SubCategoryViewAllTopModelAry.count > 0 {
+            KAppDelegate.isGradiantShownForSubEpisodes=false
+            let SubCategoryViewAllTopModelAryObj =  self.SubCategoryViewAllTopModelAry[sender.tag]
+            let nav = KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "SubCategoryViewAllDetailVC") as! SubCategoryViewAllDetailVC
+            
+            nav.userCatUrl = SubCategoryViewAllTopModelAryObj.catURl
+            self.navigationController?.pushViewController(nav, animated: true)
+        }
     }
     
     //MARK:--> PROTOCOAL FUNCTION

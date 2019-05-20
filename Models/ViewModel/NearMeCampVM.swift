@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 class NearMeCampVM  {
     
     var videoType = String()
@@ -126,11 +127,46 @@ extension NearMeCampsVC : UITableViewDataSource, UITableViewDelegate , UICollect
                 cell.imgVwBanner.isHidden = true
             }
             
-            DispatchQueue.main.async {
-                cell.imgVwBanner.sd_setImage(with: URL.init(string: "\(Apis.KCampTestUrl)\(CampListModelObj.arr_campBannerImg[0].stringValue)"),placeholderImage: nil, completed: nil)
+           // featuredImg
+            
+            //is_featured
+            if CampListModelObj.is_featured == true {
+              cell.featured_img?.isHidden = false
+                  cell.featuredImg?.isHidden = false
+            }else{
+                   cell.featured_img?.isHidden = true
+                  cell.featuredImg?.isHidden = true
             }
+            var activityIndicator = UIActivityIndicatorView()
+            if UIDevice.current.userInterfaceIdiom == .pad{
+                activityIndicator = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.whiteLarge)
 
-            /*
+            }else{
+            
+             activityIndicator = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.white)
+            }
+            activityIndicator.center =  cell.imgVwBanner.center
+          //  activityIndicator.hidesWhenStopped = true
+            cell.imgVwBanner.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            
+            DispatchQueue.main.async {
+                cell.imgVwBanner.sd_setImage(with: URL.init(string: "\(Apis.KCampTestUrl)\(CampListModelObj.arr_campBannerImg[0].stringValue)"), completed: { (image: UIImage?, error: Error?, cacheType: SDImageCacheType , imageURL: URL?) in
+                    activityIndicator.stopAnimating()
+                    activityIndicator.removeFromSuperview()
+                })
+            }
+       
+//            DispatchQueue.main.async {
+//                   cell.imgVwBanner.sd_imageIndicator =  .gray //SDWebImageActivityIndicator.gray
+//                cell.imgVwBanner.sd_setImage(with: URL.init(string: "\(Apis.KCampTestUrl)\(CampListModelObj.arr_campBannerImg[0].stringValue)"),placeholderImage: nil, completed: nil)
+//            }
+            
+//            cell.imgVwBanner.setShowActivityIndicator(true)
+//            cell.imgVwBanner.setIndicatorStyle(.gray)
+//            cell.imgVwBanner.sd_setImage(with: URL(string: urlString), placeholderImage: UIImage(named: "placeholder"))
+
+
              if CampListModelObj.campShortDesc != "Blank" {
              cell.lblDescription.isHidden = false
              let string =  CampListModelObj.campShortDesc
@@ -139,7 +175,6 @@ extension NearMeCampsVC : UITableViewDataSource, UITableViewDelegate , UICollect
              cell.lblDescription.text = ""
              cell.lblDescription.isHidden = true
              }
-             */
             
             cell.btnLearnMore.tag = indexPath.row
             cell.btnLearnMore.addTarget(self, action: #selector(btnLearnMoreAction), for: .touchUpInside)

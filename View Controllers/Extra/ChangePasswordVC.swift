@@ -77,7 +77,7 @@ class ChangePasswordVC: UIViewController, SelectMenuOption,UITextFieldDelegate, 
         if UIDevice.current.userInterfaceIdiom == .pad {
         viewController?.delegate = self
         } else {
-            self.navigationController?.navigationBar.topItem?.title  = "CHANGE PASSWORD"
+            self.title  = "CHANGE PASSWORD"
         }
         
         //varinder
@@ -159,6 +159,11 @@ class ChangePasswordVC: UIViewController, SelectMenuOption,UITextFieldDelegate, 
     
     @IBAction func btnBackAPI(_ sender: Any) {
         Proxy.shared.popToBackVC(isAnimate: true, currentViewController: self)
+    }
+    
+    @IBAction func btnRecentVideos(_ sender: Any) {
+        let nav =  KAppDelegate.storyBoradVal.instantiateViewController(withIdentifier: "RecentVideosVC") as! RecentVideosVC
+        self.navigationController?.pushViewController(nav, animated: true)
     }
     
     //MARK:--> BUTTON ACTIONS

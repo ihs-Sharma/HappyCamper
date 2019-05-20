@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SwiftyJSON
+import AVKit
+import AVFoundation
 
 class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, SelectMenuOption, SelectAviatorImage,TopHeaderViewDelegate,UICollectionViewDelegateFlowLayout {
     
@@ -20,12 +23,29 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var imgVwAviator: SetCornerImageView!
     @IBOutlet weak var menuVw: UIView!
     @IBOutlet weak var txtFldSearch: UITextField!
-    //MARK:--> VARIABLES
+    
+    @IBOutlet weak var lbl_BannerTitle: UILabel!
+    @IBOutlet weak var videoVw: UIView!
+    @IBOutlet weak var view_Gradiant: UIView!
+    @IBOutlet weak var view_GradiantLeft: UIView!
+    @IBOutlet weak var img_Thumb: UIImageView!
+    
+    @IBOutlet weak var collectionVw_HeightConstraints: NSLayoutConstraint!
+    var notificationObserver:NSObjectProtocol?
+    var isThisViewDismissed:Bool = false
+    
+    //PLAYER TASK
+    var player : AVPlayer?
+    var playerController  : AVPlayerViewController?
+    var img_Thumbnail = String()
+    
+    //MARK: - VARIABLES
     var userCatUrl = String()
     var currentPage = 1
     var numberItems = 10
     var VideoDetailModelAry = [VideoDetailModel]()
     var viewController : MenuDrawerController?
+    @IBOutlet weak var viewBottom_Constraints: NSLayoutConstraint!
     
     var bannerContent = String()
     var bannerName = String()
@@ -74,27 +94,91 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
         
     }
     
+    //MARK: - UIViewcontroller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UIDevice.current.userInterfaceIdiom == .pad {
-
-        targetVw.isHidden = true
-        SelectAviatorImageObj = self
-        viewController = (StoryboardChnage.mainStoryboard.instantiateViewController(withIdentifier: "MenuDrawerController") as! MenuDrawerController)
-        viewController?.delegate = self
         
-        targetVw.isHidden = true
-        targetVw.addSubview(viewController!.view)
-        viewController?.tblVw.delegate = viewController
-        viewController?.tblVw.dataSource = viewController
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            //varinder17
+            let isIpadPro:Bool = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) > 1024
+            
+            if isIpadPro != true {
+//                viewBottom_Constraints.constant = -60//20
+            }
+            targetVw.isHidden = true
+            SelectAviatorImageObj = self
+            viewController = (StoryboardChnage.mainStoryboard.instantiateViewController(withIdentifier: "MenuDrawerController") as! MenuDrawerController)
+            viewController?.delegate = self
+            
+            targetVw.isHidden = true
+            targetVw.addSubview(viewController!.view)
+            viewController?.tblVw.delegate = viewController
+            viewController?.tblVw.dataSource = viewController
         }
         //Load Data
         self.reloadData()
+        
+        //varinder19
+        if  UIDevice.current.userInterfaceIdiom == .phone {
+          self.colVw.addObserver(self, forKeyPath: "contentSize", options: [], context: nil)
+        }
     }
+    
+   // @IBAction func selectUpdates(sender:UIButton) { }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        // Content Size for Left Stuff Tableview
+        if let obj = object as? UICollectionView {
+            if obj == self.colVw && keyPath == "contentSize" {
+                DispatchQueue.main.async {
+                    self.collectionVw_HeightConstraints.constant = self.colVw.contentSize.height
+                }
+            }
+        }
+        
+        // Content Size for Counselor Tableview
+//        if let obj = object as? UITableView {
+//            if obj == self.tbl_Counselor && keyPath == "contentSize" {
+//                DispatchQueue.main.async {
+//                    self.tblCounselor_HeightConstraint.constant = self.tbl_Counselor.contentSize.height
+//                }
+//            }
+//        }
+    }
+    
     
     func reloadData() {
         VideoDetailModelAry.removeAll()
-        getVideoDetailApi(searchString: "")
+        self.getVideoDetailApi(searchString: "") { (banner_Data) in
+            if banner_Data.count > 0 {
+                
+           //     if UIDevice.current.userInterfaceIdiom == .pad {
+                    self.lbl_BannerTitle.text! = banner_Data["category_name"]!.stringValue
+                    
+                    var thumbnail:URL!
+                    if self.img_Thumbnail != "" {
+                        thumbnail = URL.init(string: "\(Apis.KVideosThumbURL)\(self.img_Thumbnail)")
+                    } else {
+                        thumbnail = URL.init(string: "https://www.happycamperlive.com/assets/images/about-thumbnail.png")
+                    }
+                    
+                    DispatchQueue.main.async {
+                        var bannerURL =  banner_Data["banner_content"]!.stringValue
+                        if self.VideoDetailModelAry.count > 0{
+                            let videoDetailItem : VideoDetailModel = self.VideoDetailModelAry.first!
+                            bannerURL = videoDetailItem.videoUrl
+                            if videoDetailItem.videoImageThumb.isEmpty {
+                                thumbnail = URL.init(string: "https://www.happycamperlive.com/assets/images/about-thumbnail.png")
+                            } else {
+                                thumbnail = URL.init(string: "\(Apis.KVideosThumbURL)\(videoDetailItem.videoImageThumb)")
+                            }
+                        }
+                        self.videoPlayerPlay(Url: bannerURL,thumbURL: thumbnail)
+                    }
+             //   }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,15 +190,77 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
             }
             headerDelegate = self
             targetVw.isHidden = true
+            
+            self.notificationObserver = NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { [weak self] _ in
+                if self?.self.playerController != nil && self?.isThisViewDismissed == false {
+                    self?.self.player?.seek(to: CMTime.zero)
+                    self?.self.player?.play()
+                }
+            }
         }
         colVw.delegate = self
         colVw.dataSource = self
-        
+    
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+        if !KAppDelegate.isGradiantShownForSubEpisodes {
+            let gradientLayer:CAGradientLayer = CAGradientLayer()
+            gradientLayer.frame.size = view_Gradiant.frame.size
+            gradientLayer.colors =
+                [UIColor.white.withAlphaComponent(0).cgColor,UIColor.white.withAlphaComponent(1).cgColor]
+            //        Use diffrent colors
+            view_Gradiant.layer.sublayers=nil
+            view_Gradiant.layer.addSublayer(gradientLayer)
+            
+            let gradientLayer1:CAGradientLayer = CAGradientLayer()
+            gradientLayer1.frame.size = view_GradiantLeft.frame.size
+            gradientLayer1.startPoint = CGPoint(x: 0.0, y: 0.5) //x = left to right
+            gradientLayer1.endPoint = CGPoint(x: 1.0, y: 0.5) // x = right to left
+            gradientLayer1.colors =
+                [UIColor.white.withAlphaComponent(1).cgColor,UIColor.white.withAlphaComponent(0).cgColor]
+            //        Use diffrent colors
+            view_GradiantLeft.layer.sublayers=nil
+            view_GradiantLeft.layer.addSublayer(gradientLayer1)
+
+            KAppDelegate.isGradiantShownForSubEpisodes=true
+        } else {
+            if self.player?.timeControlStatus != .playing {
+                if videoVw != nil {
+                    self.player?.play()
+                }
+            }
+        }
+    }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.img_Thumb.isHidden=false
+            
+            NotificationCenter.default.removeObserver(self.notificationObserver!)
+            
+            if self.playerController != nil {
+                self.player!.pause()
+                self.isThisViewDismissed=true
+            }
+        }
+    }
+    
+    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        KAppDelegate.isGradiantShownForSubEpisodes=false
+          self.viewDidAppear(false)
+        //self.view.layoutIfNeeded()
+        //colVw.reloadData()
+    }
+    
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {  }
+    
+    //MARK: - UIButton Actions
     @IBAction func btnBackAction(_ sender: Any) {
-        Proxy.shared
-            .popToBackVC(isAnimate: true, currentViewController: self)
+        KAppDelegate.isGradiantShownForSubEpisodes=false
+        Proxy.shared.popToBackVC(isAnimate: true, currentViewController: self)
     }
     
     @IBAction func btnMenuAction(_ sender: Any) {
@@ -135,10 +281,25 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
     
     @IBAction func btnSubmitAction(_ sender: Any) {
         VideoDetailModelAry.removeAll()
-        getVideoDetailApi(searchString : txtFldSearch.text!)
+        //        getVideoDetailApi(searchString : txtFldSearch.text!)
+        self.getVideoDetailApi(searchString: txtFldSearch.text!) { (banner_Data) in
+            
+        }
     }
     
-    //MARK:--> COLLECTION VIEW DELEGATE
+    @IBAction func buttonMuteUnmute( button: UIButton) {
+        
+        if self.player?.isMuted == true {
+            self.player?.isMuted=false
+            button.setImage(UIImage.init(named: "icon_SpeakerLoud"), for: .normal)
+        } else {
+            self.player?.isMuted=true
+            button.setImage(UIImage.init(named: "icon_SpeakerMute"), for: .normal)
+        }
+        
+    }
+    
+    //MARK: - COLLECTION VIEW DELEGATE
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return VideoDetailModelAry.count
     }
@@ -164,9 +325,18 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if UIDevice.current.userInterfaceIdiom == .pad {
-            return CGSize(width: 226.0, height: 191.0)
+            let isIpadPro:Bool = max(UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height) > 1024
+            if isIpadPro == true {
+                if UIApplication.shared.statusBarOrientation.isLandscape {
+                    return CGSize(width: 250.0, height: 215.0)
+                }else{
+                    return CGSize(width: 236.0, height: 201.0)
+                }
+            } else {
+                return CGSize(width: 226.0, height: 191.0)
+            }
         } else {
-//            return CGSize(width: colVw.frame.width/2, height: 140.0)
+            //            return CGSize(width: colVw.frame.width/2, height: 140.0)
             return CGSize(width : UIScreen.main.bounds.width/2.2, height : 150.0)
         }
     }
@@ -179,8 +349,8 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
         }
     }
     
-    //MARK:--> SIGN UP API FUNCTION
-    func getVideoDetailApi(searchString : String) {
+    //MARK: - SIGN UP API FUNCTION
+    func getVideoDetailApi(searchString : String,completionHandler: @escaping (_ banner_Data:[String : JSON]) -> Void) {
         
         let param = [
             "page_no"             :   NSNumber(integerLiteral: currentPage),
@@ -192,14 +362,14 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
             
             ] as [String:Any]
         
-        WebServiceProxy.shared.postData("\(Apis.KServerUrl)\(Apis.KGetCategoriesItems)", params: param, showIndicator: true, completion: { (JSON) in
+        WebServiceProxy.shared.postData("\(Apis.KServerUrl)\(Apis.KGetCategoriesItems)", params: param, showIndicator: true, completion: { (jsonData) in
             var AppResponse = Int()
-            AppResponse = JSON["app_response"] as? Int ?? 0
+            AppResponse = jsonData["app_response"] as? Int ?? 0
             
             if AppResponse == 200 {
-                if let CatImageVwAry = JSON["categories_with_images"] as? NSDictionary {
+                if let CatImageVwAry = jsonData["categories_with_images"] as? NSDictionary {
                     
-                    if let resultDict = JSON["categories_details"] as? NSDictionary {
+                    if let resultDict = jsonData["categories_details"] as? NSDictionary {
                         self.bannerName = resultDict["category_name"] as? String ?? ""
                         self.bannerContent = resultDict[""] as? String ?? "banner_content"
                     }
@@ -216,13 +386,26 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
                         }
                     }
                 }
-                self.colVw.reloadData()
+                
+                DispatchQueue.main.async {
+                    self.colVw.reloadData()
+                }
+                
+                guard let jsonResult = JSON.init(jsonData).dictionary else {
+                    return
+                }
+                
+                if let banner_Data = jsonResult["results"]?.dictionary {
+                    self.img_Thumbnail = jsonResult["cat_thumbnail"]!.stringValue
+                    completionHandler(banner_Data)
+                }
+                
             }
             Proxy.shared.hideActivityIndicator()
         })
     }
     
-    //MARK:--> PROTOCOL FUNCTIONS
+    //MARK: - PROTOCOL FUNCTIONS
     func didSelected(index: Int) {
         if index == 0 {
             targetVw.isHidden = true
@@ -283,8 +466,53 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
         
     }
     
-    //MARK:--> PROTOCOAL FUNCTION
+    //MARK: - PROTOCOAL FUNCTION
     func selectedImage(index: Int) {
         viewWillAppear(false)
+    }
+    
+    //MARK: - PLAY VIDEO  FUNCTION
+    func videoPlayerPlay(Url: String,thumbURL:URL!) {
+        self.img_Thumb.isHidden=false
+        
+        let videoURL = URL(string: "\(Apis.KVideoURl)\(Url)")
+        if self.playerController != nil {
+            
+            self.img_Thumb.sd_setImage(with: thumbURL,placeholderImage: nil, completed: nil)
+            
+            let currentItem = AVPlayerItem.init(url: videoURL!)
+            self.player?.replaceCurrentItem(with: currentItem)
+            self.player?.play()
+            
+        } else {
+            self.img_Thumb.sd_setImage(with: thumbURL,placeholderImage: nil, completed: nil)
+            
+            self.playerController  = AVPlayerViewController()
+            self.player = AVPlayer(url: videoURL!)
+            self.playerController?.videoGravity = .resizeAspectFill
+            self.playerController?.player = self.player
+            self.playerController?.view = videoVw
+            self.playerController?.view.frame = videoVw.bounds
+            
+            self.playerController?.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.playerController?.showsPlaybackControls=false
+            self.playerController?.view.backgroundColor = .white
+            self.addChild(self.playerController!)
+            videoVw.addSubview(self.playerController!.view )
+            self.playerController!.view.frame = videoVw.bounds
+            self.player!.play()
+            
+        }
+        
+        self.player?.addPeriodicTimeObserver(forInterval: CMTimeMake(value: 1, timescale: 600), queue: DispatchQueue.main, using: { time in
+            
+            if self.player?.currentItem?.status == AVPlayerItem.Status.readyToPlay {
+                
+                if let isPlaybackLikelyToKeepUp = self.player?.currentItem?.isPlaybackLikelyToKeepUp {
+                    //do what ever you want with isPlaybackLikelyToKeepUp value, for example, show or hide a activity indicator.
+                    self.img_Thumb.isHidden=true
+                }
+            }
+        })
     }
 }

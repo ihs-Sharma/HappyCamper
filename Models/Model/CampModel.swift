@@ -36,15 +36,17 @@ class CampListModel {
     var campAddress = String()
     var arr_campBannerImg : [JSON] = []
     var campShortDesc = String()
+    var is_featured = Bool()
     
     func userItemDict(dict: NSDictionary) {
         let json = JSON(dict)
-
+//varinder
         campId = dict["_id"] as? String ?? ""
         campTitle = dict["camp_title"] as? String ?? ""
         campShortDesc = dict["short_description"] as? String ?? ""
         arr_campBannerImg = json["camp_banner_link"].arrayValue
-        campAddress = dict["address"] as? String ?? ""
+        campAddress = dict["location"] as? String ?? ""
+        is_featured = dict["is_featured"] as? Bool ?? false
     }
 }
 
