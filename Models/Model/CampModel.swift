@@ -30,13 +30,15 @@ class TransactionModel {
         
     }
 }
+
 class CampListModel {
     var campId = String()
     var campTitle = String()
     var campAddress = String()
     var arr_campBannerImg : [JSON] = []
     var campShortDesc = String()
-    
+    var is_featured = Bool()
+
     func userItemDict(dict: NSDictionary) {
         let json = JSON(dict)
 
@@ -45,6 +47,7 @@ class CampListModel {
         campShortDesc = dict["short_description"] as? String ?? ""
         arr_campBannerImg = json["camp_banner_link"].arrayValue
         campAddress = dict["location"] as? String ?? ""
+        is_featured = dict["is_featured"] as? Bool ?? false
     }
 }
 

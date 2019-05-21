@@ -18,6 +18,7 @@ class NearMeCampTVC: UITableViewCell {
     @IBOutlet weak var lblCampName: UILabel!
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var imgVwAddress: UIImageView!
+    @IBOutlet weak var featuredImg: UIImageView!
     
     //FAVOURITES CAMPS
     @IBOutlet weak var imgVwLogo: SetCornerImageView!

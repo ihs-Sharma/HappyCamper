@@ -45,6 +45,7 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
     var VideoDetailModelAry = [VideoDetailModel]()
     var viewController : MenuDrawerController?
     @IBOutlet weak var viewBottom_Constraints: NSLayoutConstraint!
+    @IBOutlet weak var collectionVw_HeightConstraints: NSLayoutConstraint!
     
     var bannerContent = String()
     var bannerName = String()
@@ -122,14 +123,31 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
         }
         //Load Data
         self.reloadData()
+        
+        //varinder19
+        if  UIDevice.current.userInterfaceIdiom == .phone {
+            self.colVw.addObserver(self, forKeyPath: "contentSize", options: [], context: nil)
+        }
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        // Content Size for Left Stuff Tableview
+        if let obj = object as? UICollectionView {
+            if obj == self.colVw && keyPath == "contentSize" {
+                DispatchQueue.main.async {
+                    self.collectionVw_HeightConstraints.constant = self.colVw.contentSize.height
+                }
+            }
+        }
+        
+    }
     func reloadData() {
         VideoDetailModelAry.removeAll()
         self.getVideoDetailApi(searchString: "") { (banner_Data) in
             if banner_Data.count > 0 {
                 
-                if UIDevice.current.userInterfaceIdiom == .pad {
+                //if UIDevice.current.userInterfaceIdiom == .pad {
                     self.lbl_BannerTitle.text! = banner_Data["category_name"]!.stringValue
                     
                     var thumbnail:URL!
@@ -152,7 +170,7 @@ class SubCategoryViewAllDetailVC: UIViewController, UICollectionViewDelegate, UI
                         }
                         self.videoPlayerPlay(Url: bannerURL,thumbURL: thumbnail)
                     }
-                }
+         //       }
             }
         }
     }
